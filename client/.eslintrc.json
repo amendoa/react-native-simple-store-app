@@ -41,7 +41,9 @@
 		"no-underscore-dangle": 0
 	},
 	"globals": {
-		"__DEV__": true
+		"__DEV__": true,
+		"it": true,
+		"expect": true
 	},
 	"settings": {
 		"import/resolver": {

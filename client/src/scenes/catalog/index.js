@@ -1,52 +1,57 @@
 import React from 'react';
-
 import styled from 'styled-components/native';
+import constants from 'src/modules/constants';
 
 import {
-	connect
-} from 'react-redux';
+	Button
+} from 'src/shared/components';
 
 const Wrapper = styled.View`
 	flex: 1;
 	align-items: center;
 	justify-content: center;
+	padding: 10px;
+	background-color: #dbdee2
 `;
 
-const StyledText = styled.Text`
-	color: #00bcd4;
-	font-size: 50px;
-	font-family: quicksand-bold
+const Container = styled.View`
+	margin: 20px 0px 20px 0px;
+	width: 100%
 `;
 
-const StyledTextTest = styled.Text`
-	color: #00bcd4;
-	font-size: 50px;
-`;
-
-function Catalog () {
-	return (
-		<Wrapper>
-			<StyledText>
-				{
-					'Payment'
-				}
-			</StyledText>
-			<StyledTextTest>
-				{
-					'Payment'
-				}
-			</StyledTextTest>
-		</Wrapper>
-	);
-}
-
-const mapStateToProps = (state) => {
-	return {
-		defaultreducer: state.defaultreducer
-	};
-};
-
-export default connect(
-	mapStateToProps,
-	null
-)(Catalog);
+export default () => (
+	<Wrapper>
+		<Container>
+			<Button
+				primary
+				text="add to bag I"
+			/>
+		</Container>
+		<Container>
+			<Button
+				default
+				text="add to bag II"
+			/>
+		</Container>
+		<Container>
+			<Button
+				primary
+				outline
+				text="add to bag III"
+			/>
+		</Container>
+		<Container>
+			<Button
+				primary
+				width="50"
+				height="50"
+				icon={{
+					icon: 'arrow-left',
+					width: '50',
+					height: '50',
+					color: constants.colors.dark
+				}}
+			/>
+		</Container>
+	</Wrapper>
+);
