@@ -43,7 +43,8 @@
 	"globals": {
 		"__DEV__": true,
 		"it": true,
-		"expect": true
+		"expect": true,
+		"describe": true
 	},
 	"settings": {
 		"import/resolver": {

@@ -6,10 +6,22 @@ import {
 	Button
 } from 'src/shared/components';
 
-it('renders correctly', () => {
-	const tree = renderer.create(
-		<Button />
+describe('<Button />', () => {
+	const getWrapper = props => renderer.create(
+		<Button
+			{
+			...props
+			}
+		/>
 	).toJSON();
 
-	expect(tree).toMatchSnapshot();
+	const modelI = {
+		primary: true,
+		text: 'button primary'
+	};
+
+	it('renders correctly', () => {
+		const tree = getWrapper(modelI);
+		expect(tree).toMatchSnapshot();
+	});
 });

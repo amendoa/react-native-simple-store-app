@@ -21,12 +21,7 @@ import {
 	Provider
 } from 'react-redux';
 
-import {
-	ThemeProvider
-} from 'styled-components/native';
-
 import store from 'src/redux/store';
-import constants from 'src/modules/constants';
 import Catalog from 'src/scenes/catalog';
 
 const quicksandBold = require('./assets/fonts/Quicksand-Bold.ttf');
@@ -54,10 +49,6 @@ export default class App extends Component {
 			fontLoaded
 		} = this.state;
 
-		const theme = {
-			colors: constants.colors
-		};
-
 		// TODO: loading screen
 		if (!fontLoaded) {
 			return (
@@ -75,23 +66,19 @@ export default class App extends Component {
 			<Provider
 				store={store}
 			>
-				<ThemeProvider
-					theme={theme}
-				>
-					<Router>
-						<Stack
-							hideNavBar
-							key="root"
-						>
-							<Scene
-								key="catalog"
-								component={() => (
-									<Catalog />
-								)}
-							/>
-						</Stack>
-					</Router>
-				</ThemeProvider>
+				<Router>
+					<Stack
+						hideNavBar
+						key="root"
+					>
+						<Scene
+							key="catalog"
+							component={() => (
+								<Catalog />
+							)}
+						/>
+					</Stack>
+				</Router>
 			</Provider>
 		);
 	}

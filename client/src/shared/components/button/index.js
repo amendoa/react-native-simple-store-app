@@ -1,6 +1,16 @@
-import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
+import constants from 'src/modules/constants';
+
+import React, {
+	Component
+} from 'react';
+
+import {
+	Animated,
+	Easing,
+	TouchableWithoutFeedback
+} from 'react-native';
 
 import {
 	Label,
@@ -9,7 +19,6 @@ import {
 
 const getBackgroundColor = (props) => {
 	const {
-		theme,
 		primary: isPrimaryButton,
 		default: isDefaultButton,
 		outline: isOutlineButton
@@ -17,7 +26,7 @@ const getBackgroundColor = (props) => {
 
 	const {
 		colors
-	} = theme;
+	} = constants;
 
 	if (isOutlineButton) {
 		return colors.default;
@@ -36,14 +45,13 @@ const getBackgroundColor = (props) => {
 
 const getBorder = (props) => {
 	const {
-		theme,
 		primary: isPrimaryButton,
 		outline: isOutlineButton
 	} = props;
 
 	const {
 		colors
-	} = theme;
+	} = constants;
 
 	if (isOutlineButton && isPrimaryButton) {
 		return `1.5px solid ${colors.primary}`;
@@ -52,7 +60,7 @@ const getBorder = (props) => {
 	return '0px';
 };
 
-const ButtonWrapper = styled.TouchableOpacity`
+const ButtonWrapper = styled.View`
 	display: flex;
 	justify-content: center;
 	flex-direction: row;
@@ -62,59 +70,111 @@ const ButtonWrapper = styled.TouchableOpacity`
 	height: ${props => props.height};
 	margin: 0;
 	border: ${props => getBorder(props)};
+	padding: 8px 8px 8px 8px;
 `;
 
-const ButtonComponent = (props) => {
-	const {
-		text,
-		primary: isPrimaryButton,
-		default: isDefaultButton,
-		outline: isOutlineButton,
-		icon
-	} = props;
+export default class ButtonComponent extends Component {
+	constructor (props) {
+		super(props);
+		this.state = {
+			animatePress: new Animated.Value(1)
+		};
+	}
 
-	return (
-		<ButtonWrapper
-			onPress={() => {
-				console.log('teste');
-			}}
-			{
-			...props
-			}
-			activeOpacity={1}
-		>
-			{
-				text && (
-					<Label
-						text={text}
-						default={isPrimaryButton}
-						dark={isDefaultButton}
-						primary={isOutlineButton}
-						fontSize={16}
-					/>
-				)
-			}
-			{
-				icon && (
-					<Icon
-						{
-						...icon
-						}
-					/>
-				)
-			}
-		</ButtonWrapper>
-	);
-};
+	animateIn = () => {
+		const {
+			animatePress
+		} = this.state;
+
+		Animated.timing(animatePress, {
+			toValue: 0.98,
+			duration: 100,
+			easing: Easing.elastic(2),
+			useNativeDriver: true
+		}).start();
+	}
+
+	animateOut = () => {
+		const {
+			animatePress
+		} = this.state;
+
+		Animated.timing(animatePress, {
+			toValue: 1,
+			duration: 100,
+			easing: Easing.elastic(2),
+			useNativeDriver: true
+		}).start();
+	}
+
+	render () {
+		const {
+			text,
+			primary: isPrimaryButton,
+			default: isDefaultButton,
+			outline: isOutlineButton,
+			icon,
+			onPress
+		} = this.props;
+
+		const {
+			animatePress
+		} = this.state;
+
+		return (
+			<TouchableWithoutFeedback
+				onPressIn={() => this.animateIn()}
+				onPressOut={() => this.animateOut()}
+				onPress={onPress}
+			>
+				<ButtonWrapper
+					style={{
+						transform: [
+							{
+								scale: animatePress
+							}
+						]
+					}}
+					{
+					...this.props
+					}
+					as={Animated.View}
+				>
+					{
+						text && (
+							<Label
+								text={text}
+								default={isPrimaryButton}
+								dark={isDefaultButton}
+								primary={isOutlineButton}
+								fontSize={16}
+							/>
+						)
+					}
+					{
+						icon && (
+							<Icon
+								{
+								...icon
+								}
+							/>
+						)
+					}
+				</ButtonWrapper>
+			</TouchableWithoutFeedback>
+		);
+	}
+}
 
 ButtonComponent.defaultProps = {
 	text: null,
 	primary: false,
 	default: false,
 	outline: false,
-	width: '100%',
-	height: '48',
-	icon: {}
+	width: 'auto',
+	height: 'auto',
+	icon: {},
+	onPress: () => {}
 };
 
 ButtonComponent.propTypes = {
@@ -124,7 +184,6 @@ ButtonComponent.propTypes = {
 	outline: PropTypes.bool,
 	width: PropTypes.string,
 	height: PropTypes.string,
-	icon: PropTypes.shape({ root: PropTypes.string })
+	icon: PropTypes.shape({}),
+	onPress: PropTypes.func
 };
-
-export default ButtonComponent;
