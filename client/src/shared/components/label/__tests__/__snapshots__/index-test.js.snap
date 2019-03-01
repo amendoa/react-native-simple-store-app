@@ -3,6 +3,7 @@
 exports[`<Label /> renders correctly 1`] = `
 <Text
   fontSize={10}
+  margin="0px 0px 5px 0px"
   primary={true}
   style={
     Array [

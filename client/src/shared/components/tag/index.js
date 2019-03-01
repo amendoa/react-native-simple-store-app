@@ -3,9 +3,14 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import constants from 'src/modules/constants';
 
+import {
+	Label
+} from 'src/shared/components';
+
 const getBackgroundColor = (props) => {
 	const {
-		primary: isPrimaryTag
+		primary: isPrimaryTag,
+		default: isDefaultTag
 	} = props;
 
 	const {
@@ -16,6 +21,10 @@ const getBackgroundColor = (props) => {
 		return colors.primary;
 	}
 
+	if (isDefaultTag) {
+		return colors.default;
+	}
+
 	return 'transparent';
 };
 
@@ -23,30 +32,42 @@ const Tag = styled.View`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: ${props => props.width};
-	height: ${props => props.height};
+	width: 80;
+	height: 40;
 	background-color: ${props => getBackgroundColor(props)};
-	border-radius: 50;
 `;
 
-const TagComponent = props => (
-	<Tag
-		{
-		...props
-		}
-	/>
-);
+const TagComponent = (props) => {
+	const {
+		label
+	} = props;
+
+	return (
+		<Tag
+			{
+			...props
+			}
+		>
+			<Label
+				fontSize={16}
+				{
+				...label
+				}
+			/>
+		</Tag>
+	);
+};
 
 TagComponent.defaultProps = {
-	primary: true,
-	width: 50,
-	height: 50,
+	primary: false,
+	default: false,
+	label: {}
 };
 
 TagComponent.propTypes = {
 	primary: PropTypes.bool,
-	width: PropTypes.number,
-	height: PropTypes.number,
+	default: PropTypes.bool,
+	label: PropTypes.shape({})
 };
 
 export default TagComponent;

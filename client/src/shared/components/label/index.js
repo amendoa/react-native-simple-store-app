@@ -37,7 +37,7 @@ const Label = styled.Text`
 	margin: 0;
 	align-self: center;
 	color: ${props => getColor(props)};
-	margin-bottom: 5;
+	margin: ${props => props.margin}
 `;
 
 const LabelComponent = (props) => {
@@ -60,12 +60,14 @@ const LabelComponent = (props) => {
 
 LabelComponent.defaultProps = {
 	text: 'text',
-	fontSize: 1
+	fontSize: 1,
+	margin: '0px 0px 5px 0px'
 };
 
 LabelComponent.propTypes = {
 	text: PropTypes.string,
-	fontSize: PropTypes.number
+	fontSize: PropTypes.number,
+	margin: PropTypes.string
 };
 
 export default LabelComponent;

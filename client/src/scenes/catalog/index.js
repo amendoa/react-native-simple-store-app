@@ -55,16 +55,6 @@ export default () => (
 				height="24"
 				dark
 			/> */}
-			{/* <Tag
-				primary
-				width={30}
-				height={30}
-				label={{
-					text: '10',
-					default: true,
-					fontSize: 16
-				}}
-			/> */}
 		</Container>
 		{/* <Container>
 			<Button

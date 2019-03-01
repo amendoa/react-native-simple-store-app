@@ -4,10 +4,6 @@ import constants from 'src/modules/constants';
 import styled from 'styled-components/native';
 
 import {
-	Tag
-} from 'src/shared/components';
-
-import {
 	ArrowLeftIcon,
 	ChevronLeftIconComponent,
 	ChevronRightIconComponent,
@@ -48,6 +44,17 @@ const TagContainer = styled.View`
 	z-index: 1;
 	margin-top: -5;
 	right: 0;
+`;
+
+const Tag = styled.View`
+	width: 16;
+	height: 16;
+	background-color: ${constants.colors.primary};
+	border-radius: 50;
+`;
+
+const IconContainer = styled.View`
+	margin-right: ${props => (props.tag ? 5 : 0)}
 `;
 
 const renderIcon = (props) => {
@@ -131,17 +138,17 @@ const IconComponent = (props) => {
 			{
 				tag && (
 					<TagContainer>
-						<Tag
-							primary
-							width={16}
-							height={16}
-						/>
+						<Tag />
 					</TagContainer>
 				)
 			}
-			{
-				renderIcon(props)
-			}
+			<IconContainer
+				tag={tag}
+			>
+				{
+					renderIcon(props)
+				}
+			</IconContainer>
 		</Wrapper>
 	);
 };

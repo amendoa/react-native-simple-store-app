@@ -16,9 +16,11 @@ describe('<Tag />', () => {
 	).toJSON();
 
 	const modelI = {
-		width: 50,
-		height: 50,
-		primary: true
+		primary: true,
+		label: {
+			dark: true,
+			text: '49,99$'
+		}
 	};
 
 	it('renders correctly', () => {

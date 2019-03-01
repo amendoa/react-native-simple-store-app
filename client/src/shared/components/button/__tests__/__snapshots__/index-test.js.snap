@@ -49,6 +49,7 @@ exports[`<Button /> renders correctly 1`] = `
     dark={false}
     default={true}
     fontSize={16}
+    margin="0px 0px 5px 0px"
     primary={false}
     style={
       Array [
@@ -79,6 +80,17 @@ exports[`<Button /> renders correctly 1`] = `
         },
       ]
     }
-  />
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "marginRight": 0,
+          },
+        ]
+      }
+      tag={false}
+    />
+  </View>
 </View>
 `;

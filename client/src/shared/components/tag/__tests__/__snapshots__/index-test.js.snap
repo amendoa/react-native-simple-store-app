@@ -2,21 +2,50 @@
 
 exports[`<Tag /> renders correctly 1`] = `
 <View
-  height={50}
+  default={false}
+  label={
+    Object {
+      "dark": true,
+      "text": "49,99$",
+    }
+  }
   primary={true}
   style={
     Array [
       Object {
         "alignItems": "center",
         "backgroundColor": "#5197ff",
-        "borderRadius": 50,
         "display": "flex",
-        "height": 50,
+        "height": 40,
         "justifyContent": "center",
-        "width": 50,
+        "width": 80,
       },
     ]
   }
-  width={50}
-/>
+>
+  <Text
+    dark={true}
+    fontSize={16}
+    margin="0px 0px 5px 0px"
+    style={
+      Array [
+        Object {
+          "alignSelf": "center",
+          "color": "#000000",
+          "fontFamily": "quicksand-bold",
+          "fontSize": 16,
+          "marginBottom": 5,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+        },
+      ]
+    }
+    text="49,99$"
+  >
+    49,99$
+  </Text>
+</View>
 `;

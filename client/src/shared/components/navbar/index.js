@@ -39,6 +39,7 @@ const RightItem = styled.View`
 	align-items: center;
 	flex-direction: row;
 	flex: 1 0 0;
+	margin-top: 20;
 `;
 
 const NavbarComponent = (props) => {
