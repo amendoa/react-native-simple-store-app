@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders correctly 1`] = `
+<View
+  accessible={true}
+  default={false}
+  height="auto"
+  icon={Object {}}
+  onPress={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  outline={false}
+  primary={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#5197ff",
+      "borderColor": "black",
+      "borderStyle": "solid",
+      "borderWidth": 0,
+      "display": "flex",
+      "flexDirection": "row",
+      "height": "auto",
+      "justifyContent": "center",
+      "marginBottom": 0,
+      "marginLeft": 0,
+      "marginRight": 0,
+      "marginTop": 0,
+      "paddingBottom": 8,
+      "paddingLeft": 8,
+      "paddingRight": 8,
+      "paddingTop": 8,
+      "transform": Array [
+        Object {
+          "scale": 1,
+        },
+      ],
+      "width": "auto",
+    }
+  }
+  text="button primary"
+  width="auto"
+>
+  <Text
+    dark={false}
+    default={true}
+    fontSize={16}
+    primary={false}
+    style={
+      Array [
+        Object {
+          "alignSelf": "center",
+          "color": "#ffffff",
+          "fontFamily": "quicksand-bold",
+          "fontSize": 16,
+          "marginBottom": 5,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 0,
+          "textAlign": "center",
+          "textAlignVertical": "center",
+        },
+      ]
+    }
+    text="button primary"
+  >
+    button primary
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "display": "flex",
+        },
+      ]
+    }
+  />
+</View>
+`;

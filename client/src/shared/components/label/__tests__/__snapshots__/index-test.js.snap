@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Label /> renders correctly 1`] = `
+<Text
+  fontSize={10}
+  primary={true}
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "color": "#5197ff",
+        "fontFamily": "quicksand-bold",
+        "fontSize": 10,
+        "marginBottom": 5,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 0,
+        "textAlign": "center",
+        "textAlignVertical": "center",
+      },
+    ]
+  }
+  text="teste"
+>
+  teste
+</Text>
+`;

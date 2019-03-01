@@ -1,0 +1,12 @@
+{
+	"name": "prod config",
+	"colors": {
+		"primary": "#5197ff",
+		"default": "#ffffff",
+		"dark": "#000000"
+	},
+	"fontSize": {
+		"small": 8,
+		"medium": 16
+	}
+}
