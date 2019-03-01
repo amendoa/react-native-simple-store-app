@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 // eslint-disable-next-line
 import Svg, {
-	Polygon,
+	Path,
 } from 'react-native-svg';
 
-const ArrowLeftIconComponent = (props) => {
+const CloseIconComponent = (props) => {
 	const {
 		color,
 	} = props;
@@ -18,21 +18,21 @@ const ArrowLeftIconComponent = (props) => {
 			}
 			viewBox="0 0 24 24"
 		>
-			<Polygon
-				fillRule="evenodd"
+			<Path
+				fill-rule="evenodd"
 				fill={color}
-				points="6.414 13 12.707 19.293 11.293 20.707 2.586 12 11.293 3.293 12.707 4.707 6.414 11 21 11 21 13"
+				d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
 			/>
 		</Svg>
 	);
 };
 
-ArrowLeftIconComponent.defaultProps = {
+CloseIconComponent.defaultProps = {
 	color: '',
 };
 
-ArrowLeftIconComponent.propTypes = {
+CloseIconComponent.propTypes = {
 	color: PropTypes.string
 };
 
-export default ArrowLeftIconComponent;
+export default CloseIconComponent;

@@ -6,7 +6,7 @@ import Svg, {
 	Polygon,
 } from 'react-native-svg';
 
-const ArrowLeftIconComponent = (props) => {
+const ChevronLeftIconComponent = (props) => {
 	const {
 		color,
 	} = props;
@@ -21,18 +21,18 @@ const ArrowLeftIconComponent = (props) => {
 			<Polygon
 				fillRule="evenodd"
 				fill={color}
-				points="6.414 13 12.707 19.293 11.293 20.707 2.586 12 11.293 3.293 12.707 4.707 6.414 11 21 11 21 13"
+				points="9.414 12 16.707 19.293 15.293 20.707 6.586 12 15.293 3.293 16.707 4.707"
 			/>
 		</Svg>
 	);
 };
 
-ArrowLeftIconComponent.defaultProps = {
+ChevronLeftIconComponent.defaultProps = {
 	color: '',
 };
 
-ArrowLeftIconComponent.propTypes = {
+ChevronLeftIconComponent.propTypes = {
 	color: PropTypes.string
 };
 
-export default ArrowLeftIconComponent;
+export default ChevronLeftIconComponent;
