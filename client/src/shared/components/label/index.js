@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import constants from 'src/modules/constants';
 import PropTypes from 'prop-types';
 
 const getColor = (props) => {
 	const {
 		dark: isDarkLabel,
 		default: isDefaultLabel,
-		primary: isPrimaryLabel,
-		theme
+		primary: isPrimaryLabel
 	} = props;
 
 	const {
 		colors
-	} = theme;
+	} = constants;
 
 	if (isPrimaryLabel) {
 		return colors.primary;
@@ -36,7 +36,8 @@ const Label = styled.Text`
 	text-align: center;
 	margin: 0;
 	align-self: center;
-	color: ${props => getColor(props)}
+	color: ${props => getColor(props)};
+	margin-bottom: 5;
 `;
 
 const LabelComponent = (props) => {
