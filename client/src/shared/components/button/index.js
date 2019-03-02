@@ -60,7 +60,7 @@ const getBorder = (props) => {
 	return '0px';
 };
 
-const ButtonWrapper = styled.View`
+const ButtonWrapper = styled(Animated.View)`
 	display: flex;
 	justify-content: center;
 	flex-direction: row;
@@ -138,7 +138,6 @@ export default class ButtonComponent extends Component {
 					{
 					...this.props
 					}
-					as={Animated.View}
 				>
 					{
 						text && (

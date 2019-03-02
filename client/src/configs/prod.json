@@ -3,7 +3,8 @@
 	"colors": {
 		"primary": "#5197ff",
 		"default": "#ffffff",
-		"dark": "#000000"
+		"dark": "#000000",
+		"gray": "#d0d0db"
 	},
 	"fontSize": {
 		"small": 8,

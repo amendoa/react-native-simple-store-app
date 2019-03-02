@@ -6,7 +6,8 @@ import {
 	Button,
 	Icon,
 	Navbar,
-	Tag
+	Tag,
+	Image
 } from 'src/shared/components';
 
 const Wrapper = styled.View`
@@ -49,13 +50,28 @@ export default () => (
 			]}
 		/>
 		<Container>
-			{/* <Icon
+			<Image
+				source="http://192.168.0.100:7070/images/product1.jpg"
+				thumbnailSource="http://192.168.0.100:7070/thumbs/product1.jpg"
+				width={150}
+				height={150}
+			/>
+
+			<Button
+				primary
+				text="add to bag I"
+				width="50"
+				height="50"
+			/>
+		</Container>
+		{/* <Container>
+			<Icon
 				icon="bag"
 				width="24"
 				height="24"
 				dark
-			/> */}
-		</Container>
+			/>
+		</Container> */}
 		{/* <Container>
 			<Button
 				primary
