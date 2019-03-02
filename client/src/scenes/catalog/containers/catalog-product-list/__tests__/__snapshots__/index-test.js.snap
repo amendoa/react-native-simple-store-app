@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Label /> renders correctly 1`] = `
+<View
+  isFirstItem={false}
+  isLastItem={false}
+  style={
+    Array [
+      Object {
+        "marginBottom": 32,
+        "marginTop": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "flex-start",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "marginBottom": 16,
+          "marginLeft": 24,
+          "marginRight": 0,
+          "marginTop": 0,
+        },
+      ]
+    }
+  >
+    <Text
+      dark={true}
+      fontSize={18}
+      margin="0px 0px 5px 0px"
+      style={
+        Array [
+          Object {
+            "alignSelf": "center",
+            "color": "#000000",
+            "fontFamily": "quicksand-bold",
+            "fontSize": 18,
+            "marginBottom": 5,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 0,
+            "textAlign": "center",
+            "textAlignVertical": "center",
+          },
+        ]
+      }
+      text="teste"
+    >
+      teste
+    </Text>
+  </View>
+</View>
+`;

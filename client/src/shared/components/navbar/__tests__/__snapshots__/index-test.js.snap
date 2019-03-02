@@ -36,6 +36,7 @@ exports[`<Navbar /> renders correctly 1`] = `
   >
     <View
       accessible={true}
+      buttonPadding="8px 8px 8px 8px"
       default={false}
       height="auto"
       icon={
@@ -291,6 +292,7 @@ exports[`<Navbar /> renders correctly 1`] = `
   >
     <View
       accessible={true}
+      buttonPadding="8px 8px 8px 8px"
       default={false}
       height="auto"
       icon={
@@ -489,6 +491,7 @@ exports[`<Navbar /> renders correctly 1`] = `
     </View>
     <View
       accessible={true}
+      buttonPadding="8px 8px 8px 8px"
       default={false}
       height="auto"
       icon={

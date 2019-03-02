@@ -1,6 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import constants from 'src/modules/constants';
+import uuid from 'uuid/v4';
+
+import {
+	ScrollView
+} from 'react-native';
 
 import {
 	Button,
@@ -10,16 +15,33 @@ import {
 	Image
 } from 'src/shared/components';
 
+import {
+	CatalogProductList
+} from 'src/scenes/catalog/containers';
+
 const Wrapper = styled.View`
 	flex: 1;
 	align-items: center;
 	background-color: ${constants.colors.default}
 `;
 
-const Container = styled.View`
-	width: 100%;
-	height: 100%;
-`;
+const catalogs = [
+	{
+		title: 'T-Shirts I'
+	},
+	{
+		title: 'T-Shirts II'
+	},
+	{
+		title: 'T-Shirts III'
+	},
+	{
+		title: 'T-Shirts IV'
+	},
+	{
+		title: 'T-Shirts V'
+	}
+];
 
 export default () => (
 	<Wrapper>
@@ -49,21 +71,27 @@ export default () => (
 				}
 			]}
 		/>
-		<Container>
-			<Image
-				source="http://192.168.0.100:7070/images/product1.jpg"
-				thumbnailSource="http://192.168.0.100:7070/thumbs/product1.jpg"
-				width={150}
-				height={150}
-			/>
+		<ScrollView
+			showsVerticalScrollIndicator={false}
+		>
+			{
+				catalogs.map((item, index) => (
+					<CatalogProductList
+						key={uuid()}
+						title={item.title}
+						isLastItem={index === (catalogs.length - 1)}
+						isFirstItem={index === 0}
+					/>
+				))
+			}
 
-			<Button
+			{/* <Button
 				primary
 				text="add to bag I"
 				width="50"
 				height="50"
-			/>
-		</Container>
+			/> */}
+		</ScrollView>
 		{/* <Container>
 			<Icon
 				icon="bag"

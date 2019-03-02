@@ -70,7 +70,7 @@ const ButtonWrapper = styled(Animated.View)`
 	height: ${props => props.height};
 	margin: 0;
 	border: ${props => getBorder(props)};
-	padding: 8px 8px 8px 8px;
+	padding: ${props => props.buttonPadding};
 `;
 
 export default class ButtonComponent extends Component {
@@ -114,7 +114,8 @@ export default class ButtonComponent extends Component {
 			default: isDefaultButton,
 			outline: isOutlineButton,
 			icon,
-			onPress
+			onPress,
+			children
 		} = this.props;
 
 		const {
@@ -159,6 +160,9 @@ export default class ButtonComponent extends Component {
 							/>
 						)
 					}
+					{
+						children
+					}
 				</ButtonWrapper>
 			</TouchableWithoutFeedback>
 		);
@@ -173,7 +177,9 @@ ButtonComponent.defaultProps = {
 	width: 'auto',
 	height: 'auto',
 	icon: {},
-	onPress: () => {}
+	onPress: () => {},
+	children: null,
+	buttonPadding: '8px 8px 8px 8px'
 };
 
 ButtonComponent.propTypes = {
@@ -184,5 +190,7 @@ ButtonComponent.propTypes = {
 	width: PropTypes.string,
 	height: PropTypes.string,
 	icon: PropTypes.shape({}),
-	onPress: PropTypes.func
+	onPress: PropTypes.func,
+	children: PropTypes.node,
+	buttonPadding: PropTypes.string,
 };

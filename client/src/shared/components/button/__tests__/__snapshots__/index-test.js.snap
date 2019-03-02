@@ -3,6 +3,7 @@
 exports[`<Button /> renders correctly 1`] = `
 <View
   accessible={true}
+  buttonPadding="8px 8px 8px 8px"
   default={false}
   height="auto"
   icon={Object {}}

@@ -34,7 +34,6 @@ const Label = styled.Text`
 	font-size: ${props => props.fontSize};
 	text-align-vertical: center;
 	text-align: center;
-	margin: 0;
 	align-self: center;
 	color: ${props => getColor(props)};
 	margin: ${props => props.margin}
