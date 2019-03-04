@@ -4,7 +4,7 @@
 		"primary": "#5197ff",
 		"default": "#ffffff",
 		"dark": "#000000",
-		"gray": "#d0d0db"
+		"gray": "#f0f0f0"
 	},
 	"fontSize": {
 		"small": 8,

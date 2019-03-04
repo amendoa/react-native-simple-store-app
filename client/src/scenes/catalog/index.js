@@ -19,6 +19,10 @@ import {
 	CatalogProductList
 } from 'src/scenes/catalog/containers';
 
+import {
+	TranslateAndOpacityAnimation
+} from 'src/shared/animations';
+
 const Wrapper = styled.View`
 	flex: 1;
 	align-items: center;
@@ -76,12 +80,19 @@ export default () => (
 		>
 			{
 				catalogs.map((item, index) => (
-					<CatalogProductList
+					<TranslateAndOpacityAnimation
+						delayMultiplier={index}
 						key={uuid()}
-						title={item.title}
-						isLastItem={index === (catalogs.length - 1)}
-						isFirstItem={index === 0}
-					/>
+						doTranslateY
+						doTranslateX={false}
+						doOpacity={false}
+					>
+						<CatalogProductList
+							title={item.title}
+							isLastItem={index === (catalogs.length - 1)}
+							isFirstItem={index === 0}
+						/>
+					</TranslateAndOpacityAnimation>
 				))
 			}
 

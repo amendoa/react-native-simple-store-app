@@ -70,9 +70,7 @@ exports[`<Label /> renders correctly 1`] = `
   <View
     style={
       Array [
-        Object {
-          "position": "relative",
-        },
+        Object {},
       ]
     }
   >
@@ -94,7 +92,7 @@ exports[`<Label /> renders correctly 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#d0d0db",
+              "backgroundColor": "#f0f0f0",
               "height": 180,
               "width": 180,
             },

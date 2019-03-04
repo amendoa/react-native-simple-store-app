@@ -18,7 +18,6 @@ exports[`<Label /> renders correctly 1`] = `
       Array [
         Object {
           "alignItems": "flex-start",
-          "display": "flex",
           "flexDirection": "row",
           "justifyContent": "flex-start",
           "marginBottom": 16,

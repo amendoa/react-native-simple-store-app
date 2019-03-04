@@ -7,7 +7,7 @@ exports[`<Image /> renders correctly 1`] = `
   style={
     Array [
       Object {
-        "backgroundColor": "#d0d0db",
+        "backgroundColor": "#f0f0f0",
         "height": 500,
         "width": 500,
       },

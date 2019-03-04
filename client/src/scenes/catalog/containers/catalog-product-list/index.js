@@ -12,16 +12,19 @@ import {
 } from 'src/scenes/catalog/components';
 
 import {
+	TranslateAndOpacityAnimation
+} from 'src/shared/animations';
+
+import {
 	Label
 } from 'src/shared/components';
 
 const Wrapper = styled.View`
 	margin-bottom: ${props => (props.isLastItem ? '32px' : '32px')};
-	margin-top: ${props => (props.isFirstItem ? '32px' : '0px')}
+	margin-top: ${props => (props.isFirstItem ? '32px' : '0px')};
 `;
 
 const Header = styled.View`
-	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -31,6 +34,7 @@ const Header = styled.View`
 const Item = styled.View`
 	margin-left: ${props => (props.isFirstItem ? '24px' : '0px')};
 	margin-right: 24px;
+	${'' /* background-color: red; */}
 `;
 
 const CatalogProductListContainer = (props) => {
@@ -71,17 +75,21 @@ const CatalogProductListContainer = (props) => {
 			>
 				{
 					items.map((item, index) => (
-						<Item
+						<TranslateAndOpacityAnimation
+							delayMultiplier={index}
 							key={uuid()}
-							isLastItem={index === (items.length - 1)}
-							isFirstItem={index === 0}
 						>
-							<CatalogProductCard
-								imageSource={item.imageSource}
-								imageThumbnailSource={item.imageThumbnailSource}
-								price={item.price}
-							/>
-						</Item>
+							<Item
+								isLastItem={index === (items.length - 1)}
+								isFirstItem={index === 0}
+							>
+								<CatalogProductCard
+									imageSource={item.imageSource}
+									imageThumbnailSource={item.imageThumbnailSource}
+									price={item.price}
+								/>
+							</Item>
+						</TranslateAndOpacityAnimation>
 					))
 				}
 			</ScrollView>

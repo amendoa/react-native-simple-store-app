@@ -8,12 +8,13 @@ import {
 } from 'react-native';
 
 import styled from 'styled-components/native';
+import constants from 'src/modules/constants';
 import PropTypes from 'prop-types';
 
 const Wrapper = styled.View`
 	width: ${props => props.width};
 	height: ${props => props.height};
-	background-color: #d0d0db;
+	background-color: ${constants.colors.gray};
 `;
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 
@@ -9,7 +10,7 @@ import {
 } from 'src/shared/components';
 
 const Wrapper = styled.View`
-	position: relative;
+	
 `;
 
 const TagContainer = styled.View`

@@ -44,7 +44,8 @@
 		"__DEV__": true,
 		"it": true,
 		"expect": true,
-		"describe": true
+		"describe": true,
+		"jest": true
 	},
 	"settings": {
 		"import/resolver": {
