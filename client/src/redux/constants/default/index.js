@@ -1,5 +1,0 @@
-const DEFAULT_CONST = 'DEFAULT';
-
-export {
-	DEFAULT_CONST
-};

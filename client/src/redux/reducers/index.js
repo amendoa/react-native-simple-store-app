@@ -2,9 +2,8 @@ import {
 	combineReducers,
 } from 'redux';
 
-
-import defaultReducer from 'src/redux/reducers/default';
+import catalogReducer from 'src/redux/reducers/catalog';
 
 export default () => combineReducers({
-	defaultreducer: defaultReducer
+	catalog: catalogReducer
 });
