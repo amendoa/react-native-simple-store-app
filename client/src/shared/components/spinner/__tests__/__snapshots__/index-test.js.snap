@@ -45,6 +45,7 @@ exports[`<TranslateAndOpacity /> renders correctly 1`] = `
         meetOrSlice={0}
         minX={0}
         minY={0}
+        percentage={0}
         primary={true}
         style={
           Array [
@@ -159,11 +160,11 @@ exports[`<TranslateAndOpacity /> renders correctly 1`] = `
             }
             strokeDasharray={
               Array [
-                "300",
-                "300",
+                "163.36281798666926",
+                "163.36281798666926",
               ]
             }
-            strokeDashoffset={82}
+            strokeDashoffset={0}
             strokeLinecap={0}
             strokeLinejoin={0}
             strokeMiterlimit={4}
@@ -217,11 +218,11 @@ exports[`<TranslateAndOpacity /> renders correctly 1`] = `
             }
             strokeDasharray={
               Array [
-                "128",
-                "128",
+                "163.36281798666926",
+                "163.36281798666926",
               ]
             }
-            strokeDashoffset={82}
+            strokeDashoffset={163.36281798666926}
             strokeLinecap={0}
             strokeLinejoin={0}
             strokeMiterlimit={4}

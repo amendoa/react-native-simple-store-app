@@ -1,18 +1,17 @@
-import React from 'react';
+import React, {
+	Component
+} from 'react';
 import styled from 'styled-components/native';
 import constants from 'src/modules/constants';
 import uuid from 'uuid/v4';
 
 import {
-	ScrollView
+	FlatList
 } from 'react-native';
 
 import {
-	Button,
-	Icon,
 	Navbar,
-	Tag,
-	Image
+	PullRefresh
 } from 'src/shared/components';
 
 import {
@@ -31,156 +30,129 @@ const Wrapper = styled.View`
 
 const catalogs = [
 	{
-		title: 'T-Shirts I'
+		title: 'T-Shirts I',
+		key: uuid()
 	},
 	{
-		title: 'T-Shirts II'
+		title: 'T-Shirts II',
+		key: uuid()
 	},
 	{
-		title: 'T-Shirts III'
+		title: 'T-Shirts III',
+		key: uuid()
 	},
 	{
-		title: 'T-Shirts IV'
+		title: 'T-Shirts IV',
+		key: uuid()
 	},
 	{
-		title: 'T-Shirts V'
+		title: 'T-Shirts V',
+		key: uuid()
+	},
+	{
+		title: 'T-Shirts VI',
+		key: uuid()
+	},
+	{
+		title: 'T-Shirts VII',
+		key: uuid()
+	},
+	{
+		title: 'T-Shirts VIII',
+		key: uuid()
 	}
 ];
 
-export default () => (
-	<Wrapper>
-		<Navbar
-			title="Catalog"
-			rightIcons={[
-				{
-					icon: {
-						icon: 'info',
-						width: '24',
-						height: '24',
-						dark: true
-					},
-					onPress: () => {
-					}
-				},
-				{
-					icon: {
-						icon: 'bag',
-						width: '24',
-						height: '24',
-						dark: true,
-						tag: true
-					},
-					onPress: () => {
-					}
-				}
-			]}
-		/>
-		<ScrollView
-			showsVerticalScrollIndicator={false}
-		>
-			{
-				catalogs.map((item, index) => (
-					<TranslateAndOpacityAnimation
-						delayMultiplier={index}
-						key={uuid()}
-						doTranslateY
-						doTranslateX={false}
-						doOpacity={false}
-					>
-						<CatalogProductList
-							title={item.title}
-							isLastItem={index === (catalogs.length - 1)}
-							isFirstItem={index === 0}
-						/>
-					</TranslateAndOpacityAnimation>
-				))
-			}
+export default class CatalogScene extends Component {
+	static navigationOptions = {
+		header: null
+	}
 
-			{/* <Button
-				primary
-				text="add to bag I"
-				width="50"
-				height="50"
-			/> */}
-		</ScrollView>
-		{/* <Container>
-			<Icon
-				icon="bag"
-				width="24"
-				height="24"
-				dark
-			/>
-		</Container> */}
-		{/* <Container>
-			<Button
-				primary
-				text="add to bag I"
-			/>
-		</Container>
-		<Container>
-			<Button
-				default
-				text="add to bag II"
-			/>
-		</Container>
-		<Container>
-			<Button
-				primary
-				outline
-				text="add to bag III"
-			/>
-		</Container>
-		<Container>
-			<Button
-				primary
-				width="50"
-				height="50"
-				icon={{
-					icon: 'arrow-left',
-					width: '50',
-					height: '50',
-					dark: true
-				}}
-			/>
-		</Container> */}
-		{/* <Container>
-			<Icon
-				icon="arrow-left"
-				width="24"
-				height="24"
-				primary
-			/>
-			<Icon
-				icon="chevron-left"
-				width="24"
-				height="24"
-				primary
-			/>
-			<Icon
-				icon="chevron-right"
-				width="24"
-				height="24"
-				primary
-			/>
-			<Icon
-				icon="close"
-				width="24"
-				height="24"
-				primary
-			/>
-			<Icon
-				icon="bag"
-				width="24"
-				height="24"
-				primary
-			/>
+	constructor (props) {
+		super(props);
 
-			<Icon
-				icon="info"
-				width="24"
-				height="24"
-				primary
-			/>
-		</Container> */}
-	</Wrapper>
-);
+		this.state = {
+			isFetching: false
+		};
+	}
+
+	handleCatalogsRefresh = () => {
+		this.setState({
+			isFetching: true
+		});
+
+		setTimeout(() => {
+			this.setState({
+				isFetching: false
+			});
+		}, 5000);
+	}
+
+	render () {
+		const {
+			isFetching
+		} = this.state;
+
+		return (
+			<Wrapper>
+				<Navbar
+					title="Catalog"
+					rightIcons={[
+						{
+							icon: {
+								icon: 'info',
+								width: '24',
+								height: '24',
+								dark: true
+							},
+							onPress: () => {
+							}
+						},
+						{
+							icon: {
+								icon: 'bag',
+								width: '24',
+								height: '24',
+								dark: true,
+								tag: true
+							},
+							onPress: () => {
+							}
+						}
+					]}
+				/>
+
+				<PullRefresh
+					isRefreshing={isFetching}
+					onRefresh={this.handleCatalogsRefresh}
+				>
+					<FlatList
+						data={catalogs}
+						scrollEnabled={false}
+						renderItem={(data) => {
+							const {
+								item,
+								index
+							} = data;
+
+							return (
+								<TranslateAndOpacityAnimation
+									delayMultiplier={index}
+									doTranslateY
+									doTranslateX={false}
+									doOpacity={false}
+								>
+									<CatalogProductList
+										title={item.title}
+										isLastItem={index === (catalogs.length - 1)}
+										isFirstItem={index === 0}
+									/>
+								</TranslateAndOpacityAnimation>
+							);
+						}}
+					/>
+				</PullRefresh>
+			</Wrapper>
+		);
+	}
+}

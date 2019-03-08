@@ -8,12 +8,6 @@ import {
 } from 'react-native';
 
 import {
-	Scene,
-	Router,
-	Stack
-} from 'react-native-router-flux';
-
-import {
 	Font
 } from 'expo';
 
@@ -22,7 +16,7 @@ import {
 } from 'react-redux';
 
 import store from 'src/redux/store';
-import Catalog from 'src/scenes/catalog';
+import Router from 'src/router';
 
 const quicksandBold = require('./assets/fonts/Quicksand-Bold.ttf');
 
@@ -66,19 +60,7 @@ export default class App extends Component {
 			<Provider
 				store={store}
 			>
-				<Router>
-					<Stack
-						hideNavBar
-						key="root"
-					>
-						<Scene
-							key="catalog"
-							component={() => (
-								<Catalog />
-							)}
-						/>
-					</Stack>
-				</Router>
+				<Router />
 			</Provider>
 		);
 	}

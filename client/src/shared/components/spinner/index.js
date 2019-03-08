@@ -2,6 +2,7 @@ import React, {
 	Component
 } from 'react';
 import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
 
 import {
 	Icon
@@ -22,11 +23,36 @@ export default class SpinnerComponent extends Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			rotateAnimation: new Animated.Value(0)
+			rotateAnimation: new Animated.Value(0),
+			percentage: 0
 		};
 	}
 
 	componentDidMount () {
+		this.startStopAnimation();
+	}
+
+	componentDidUpdate () {
+		this.startStopAnimation();
+	}
+
+	startStopAnimation = () => {
+		const {
+			isLoading
+		} = this.props;
+
+		const {
+			rotateAnimation
+		} = this.state;
+
+		if (isLoading) {
+			this.runLoopAnimation();
+		} else {
+			rotateAnimation.stopAnimation();
+		}
+	}
+
+	runLoopAnimation = () => {
 		const {
 			rotateAnimation
 		} = this.state;
@@ -40,11 +66,22 @@ export default class SpinnerComponent extends Component {
 		).start();
 	}
 
+	setPercentage = (percentage) => {
+		this.setState({
+			percentage
+		});
+	}
+
 	render () {
 		const {
-			rotateAnimation
+			rotateAnimation,
+			percentage
 		} = this.state;
 
+		const {
+			isLoading,
+			defaultPercentage
+		} = this.props;
 
 		const rotateZAnimation = rotateAnimation.interpolate({
 			inputRange: [
@@ -71,8 +108,19 @@ export default class SpinnerComponent extends Component {
 					width="32"
 					height="32"
 					primary
+					percentage={isLoading ? defaultPercentage : percentage}
 				/>
 			</Wrapper>
 		);
 	}
 }
+
+SpinnerComponent.defaultProps = {
+	isLoading: false,
+	defaultPercentage: 30
+};
+
+SpinnerComponent.propTypes = {
+	isLoading: PropTypes.bool,
+	defaultPercentage: PropTypes.number
+};

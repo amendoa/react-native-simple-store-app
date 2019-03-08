@@ -81,30 +81,25 @@ export default class ButtonComponent extends Component {
 		};
 	}
 
-	animateIn = () => {
+	runButtonAnimation = (toValue) => {
 		const {
 			animatePress
 		} = this.state;
 
 		Animated.timing(animatePress, {
-			toValue: 0.98,
+			toValue,
 			duration: 100,
 			easing: Easing.elastic(2),
 			useNativeDriver: true
 		}).start();
 	}
 
-	animateOut = () => {
-		const {
-			animatePress
-		} = this.state;
+	animateIn = () => {
+		this.runButtonAnimation(0.98);
+	}
 
-		Animated.timing(animatePress, {
-			toValue: 1,
-			duration: 100,
-			easing: Easing.elastic(2),
-			useNativeDriver: true
-		}).start();
+	animateOut = () => {
+		this.runButtonAnimation(1);
 	}
 
 	render () {

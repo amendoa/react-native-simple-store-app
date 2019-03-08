@@ -4,6 +4,7 @@ import ChevronRightIconComponent from 'src/shared/components/icon/icons/chevron-
 import CloseIconComponent from 'src/shared/components/icon/icons/close';
 import BagIconComponent from 'src/shared/components/icon/icons/bag';
 import InfoIconComponent from 'src/shared/components/icon/icons/info';
+import SpinnerIconComponent from 'src/shared/components/icon/icons/spinner';
 
 export {
 	ArrowLeftIcon,
@@ -11,5 +12,6 @@ export {
 	ChevronRightIconComponent,
 	CloseIconComponent,
 	BagIconComponent,
-	InfoIconComponent
+	InfoIconComponent,
+	SpinnerIconComponent
 };

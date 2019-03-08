@@ -1,65 +1,60 @@
-import React, {
-	Component
-} from 'react';
+import React from 'react';
 
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import constants from 'src/modules/constants';
 
+// eslint-disable-next-line
 import {
-	ScrollView,
-	Animated,
-	Easing,
-	PanResponder
+	PanGestureHandler,
+	State,
+	ScrollView
+} from 'react-native-gesture-handler';
+
+import {
+	Animated
 } from 'react-native';
+
 
 import {
 	Spinner
 } from 'src/shared/components';
 
+
+const RefreshAnimationContainer = styled(Animated.View)`
+	position: absolute;
+	display: flex;
+	width: 100%;
+	height: ${props => props.height};
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+`;
+
+const SpinnerContainer = styled(Animated.View)``;
+
 const Wrapper = styled.View`
+	width: 100%;
 	flex: 1;
-	background-color: red;
 `;
 
 const Container = styled(Animated.View)`
 	background-color: ${constants.colors.default};
-	z-index: 1;
 `;
 
-const RefreshAnimationContainer = styled.View`
-	position: absolute;
-	display: flex;
-	width: 100%;
-	height: ${props => props.refreshAnimationHeight};
-	align-items: center;
-	justify-content: center;
-`;
-
-export default class PullRefreshComponent extends Component {
+export default class PullRefreshComponent extends React.Component {
 	constructor (props) {
 		super(props);
 
 		this.state = {
-			scrollY: new Animated.Value(0),
+			gestureEnabled: true,
 			refreshHeight: new Animated.Value(0),
-			refreshingIsOpen: false,
-			spinnerPullPercentage: 0,
-			scrollIsEnabled: true
+			refreshingIsOpen: false
 		};
 
-		this.scrollViewRef = React.createRef();
-	}
-
-	componentWillMount () {
-		this._panResponder = PanResponder.create({
-			onStartShouldSetPanResponder: this.handleStartShouldSetPanResponder,
-			onMoveShouldSetPanResponder: this.handleMoveShouldSetPanResponder,
-			onPanResponderMove: this.handlePanResponderMove,
-			onPanResponderRelease: this.handlePanResponderEnd,
-			onPanResponderTerminate: this.handlePanResponderEnd,
-			onPanResponderGrant: () => this.setState({ scrollIsEnabled: false }),
-		});
+		this.scrollRef = React.createRef();
+		this.panRef = React.createRef();
+		this.spinner = React.createRef();
 	}
 
 	componentDidMount () {
@@ -70,106 +65,90 @@ export default class PullRefreshComponent extends Component {
 		this.runAnimation();
 	}
 
-	handleStartShouldSetPanResponder = () => {
+	hangleGestureEvent = ({ nativeEvent }) => {
 		const {
-			scrollIsEnabled
-		} = this.state;
-
-		const {
-			isRefreshing
-		} = this.props;
-
-		return !isRefreshing;
-	}
-
-	handleMoveShouldSetPanResponder = () => {
-		const {
-			scrollIsEnabled
-		} = this.state;
-
-		const {
-			isRefreshing
-		} = this.props;
-
-		return !isRefreshing;
-	}
-
-	handlePanResponderMove = (event, gestureState) => {
-		const {
-			scrollY,
+			gestureEnabled,
 			refreshHeight
 		} = this.state;
 
 		const {
 			refreshAnimationHeight,
-			isRefreshing
+			isRefreshing,
+			translationYDivider
 		} = this.props;
 
+		const {
+			translationY
+		} = nativeEvent;
+
+		if (!gestureEnabled || translationY < 0) {
+			return;
+		}
+
 		if (!isRefreshing) {
-			if ((gestureState.dy >= 0 && scrollY._value === 0) || (refreshHeight._value > 0)) {
-				const newrefreshHeightValue = gestureState.dy * 0.5;
+			const newrefreshHeightValue = translationY * translationYDivider;
 
-				this.setState({
-					spinnerPullPercentage: (newrefreshHeightValue / refreshAnimationHeight) * 100
-				});
+			this.spinner.current.setPercentage((newrefreshHeightValue / refreshAnimationHeight) * 100);
 
-				refreshHeight.setValue(newrefreshHeightValue);
-			}
-
-			this.scrollViewRef.current.scrollTo({
-				y: -1 * gestureState.dy,
-				animated: true,
-			});
+			refreshHeight.setValue(newrefreshHeightValue);
 		}
 	}
 
-	handlePanResponderEnd = () => {
+	handleStateChange = ({ nativeEvent }) => {
 		const {
 			refreshAnimationHeight,
 			onRefresh,
-			isRefreshing
+			isRefreshing,
+			translationYDivider
 		} = this.props;
 
 		const {
-			refreshHeight,
-			scrollY
-		} = this.state;
+			translationY,
+			state
+		} = nativeEvent;
 
-		if (!isRefreshing) {
-			if (refreshHeight._value >= refreshAnimationHeight) {
-				this.setState({
-					refreshingIsOpen: true
-				});
+		const endStates = [
+			State.CANCELLED,
+			State.END,
+			State.FAILED
+		];
 
-				this.runRefreshingAnimation(refreshAnimationHeight);
+		if (endStates.includes(state)) {
+			if (!isRefreshing) {
+				this.spinner.current.setPercentage(0);
 
-				onRefresh();
-			} else {
-				this.runRefreshingAnimation(0);
+				if ((translationY * translationYDivider) >= refreshAnimationHeight) {
+					this.setState({
+						refreshingIsOpen: true
+					});
+
+					this.runRefreshingAnimation(refreshAnimationHeight);
+
+					onRefresh();
+				} else {
+					this.runRefreshingAnimation(0);
+				}
 			}
 		}
-
-		this.setState({
-			scrollIsEnabled: true
-		});
-
-		// this.setState({
-		// 	spinnerPullPercentage: 0
-		// });
 	}
 
-	handleScrollToTop = () => {
+	handleScroll = ({ nativeEvent }) => {
 		const {
-			scrollY,
-			scrollIsEnabled
+			gestureEnabled
 		} = this.state;
 
-		if (scrollY._value === 0 && scrollIsEnabled) {
+		if (nativeEvent.contentOffset.y <= 0 && !gestureEnabled) {
 			this.setState({
-				scrollIsEnabled: false
+				gestureEnabled: true
 			});
 		}
-	}
+
+		if (nativeEvent.contentOffset.y > 0 && gestureEnabled) {
+			this.setState({
+				gestureEnabled: false
+			});
+		}
+	};
 
 	runAnimation = () => {
 		const {
@@ -197,52 +176,62 @@ export default class PullRefreshComponent extends Component {
 		Animated.spring(refreshHeight, {
 			toValue,
 			bounciness: 12,
+			useNativeDriver: true
 		}).start();
-
-		// Animated.timing(refreshHeight, {
-		// 	toValue,
-		// 	duration: 500,
-		// 	// easing: Easing.elastic(2),
-		// 	easing: Easing.bezier(0.86, -0.36, 0.97, 0.66),
-		// 	useNativeDriver: true
-		// }).start();
-	}
-
-	handleScroll = (event) => {
-		const {
-			scrollY
-		} = this.state;
-
-		scrollY.setValue(event.nativeEvent.contentOffset.y);
 	}
 
 	render () {
 		const {
-			contentView,
-			refreshAnimationHeight,
-			isRefreshing
-		} = this.props;
-
-		const {
-			refreshHeight,
-			spinnerPullPercentage,
-			scrollIsEnabled
+			gestureEnabled,
+			refreshHeight
 		} = this.state;
 
-		// scrollEnabled={scrollIsEnabled && !isRefreshing}
+		const {
+			refreshAnimationHeight,
+			isRefreshing,
+			children
+		} = this.props;
+
+		const spinnerOpacity = refreshHeight.interpolate({
+			inputRange: [
+				0, refreshAnimationHeight
+			],
+			outputRange: [
+				0, 1
+			],
+			extrapolate: 'clamp'
+		});
+
+		const teste = refreshHeight.interpolate({
+			inputRange: [
+				0, refreshAnimationHeight
+			],
+			outputRange: [
+				5, -10
+			],
+			extrapolate: 'clamp'
+		});
+
 		return (
-			<Wrapper
-				{
-				...this._panResponder.panHandlers
-				}
-			>
+			<Wrapper>
 				<RefreshAnimationContainer
-					refreshAnimationHeight={refreshAnimationHeight}
+					height={refreshAnimationHeight}
 				>
-					<Spinner
-						isLoading={isRefreshing}
-						percentage={spinnerPullPercentage}
-					/>
+					<SpinnerContainer
+						style={{
+							opacity: spinnerOpacity,
+							transform: [
+								{
+									translateY: teste
+								}
+							]
+						}}
+					>
+						<Spinner
+							ref={this.spinner}
+							isLoading={isRefreshing}
+						/>
+					</SpinnerContainer>
 				</RefreshAnimationContainer>
 				<Container
 					style={{
@@ -253,24 +242,27 @@ export default class PullRefreshComponent extends Component {
 						]
 					}}
 				>
-					<ScrollView
-						onScroll={this.handleScroll}
-						scrollEnabled={false}
-						showsVerticalScrollIndicator={false}
-						onTouchEnd={() => {
-							this.handleScrollToTop();
-						}}
-						onScrollEndDrag={() => {
-							this.handleScrollToTop();
-						}}
-						ref={this.scrollViewRef}
+					<PanGestureHandler
+						enabled={gestureEnabled}
+						ref={this.panRef}
+						activeOffsetY={5}
+						failOffsetY={-5}
+						onGestureEvent={this.hangleGestureEvent}
+						onHandlerStateChange={this.handleStateChange}
 					>
-						{
-							React.cloneElement(contentView, {
-								scrollEnabled: false
-							})
-						}
-					</ScrollView>
+
+						<ScrollView
+							ref={this.scrollRef}
+							scrollEventThrottle={40}
+							onScroll={this.handleScroll}
+							waitFor={[this.panRef]}
+							scrollEnabled={!isRefreshing}
+						>
+							{
+								children
+							}
+						</ScrollView>
+					</PanGestureHandler>
 				</Container>
 			</Wrapper>
 		);
@@ -278,15 +270,17 @@ export default class PullRefreshComponent extends Component {
 }
 
 PullRefreshComponent.defaultProps = {
-	contentView: null,
+	children: null,
 	refreshAnimationHeight: 60,
+	translationYDivider: 0.5,
 	isRefreshing: false,
 	onRefresh: () => {}
 };
 
 PullRefreshComponent.propTypes = {
-	contentView: PropTypes.node,
+	children: PropTypes.node,
 	refreshAnimationHeight: PropTypes.number,
+	translationYDivider: PropTypes.number,
 	isRefreshing: PropTypes.bool,
 	onRefresh: PropTypes.func
 };

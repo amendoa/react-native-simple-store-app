@@ -9,7 +9,8 @@ import {
 	ChevronRightIconComponent,
 	CloseIconComponent,
 	BagIconComponent,
-	InfoIconComponent
+	InfoIconComponent,
+	SpinnerIconComponent
 } from 'src/shared/components/icon/icons';
 
 const getIconColor = (props) => {
@@ -116,6 +117,16 @@ const renderIcon = (props) => {
 		case 'info':
 			return (
 				<InfoIconComponent
+					{
+					...props
+					}
+					color={getIconColor(props)}
+				/>
+			);
+
+		case 'spinner':
+			return (
+				<SpinnerIconComponent
 					{
 					...props
 					}

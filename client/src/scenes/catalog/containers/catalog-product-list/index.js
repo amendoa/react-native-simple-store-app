@@ -4,7 +4,7 @@ import uuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 
 import {
-	ScrollView
+	FlatList
 } from 'react-native';
 
 import {
@@ -34,7 +34,6 @@ const Header = styled.View`
 const Item = styled.View`
 	margin-left: ${props => (props.isFirstItem ? '24px' : '0px')};
 	margin-right: 24px;
-	${'' /* background-color: red; */}
 `;
 
 const CatalogProductListContainer = (props) => {
@@ -48,12 +47,14 @@ const CatalogProductListContainer = (props) => {
 		{
 			imageSource: 'http://192.168.0.100:7070/images/product1.jpg',
 			imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product1.jpg',
-			price: '40,99$'
+			price: '40,99$',
+			key: uuid()
 		},
 		{
 			imageSource: 'http://192.168.0.100:7070/images/product2.jpg',
 			imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product2.jpg',
-			price: '49,99$'
+			price: '49,99$',
+			key: uuid()
 		}
 	];
 
@@ -69,15 +70,19 @@ const CatalogProductListContainer = (props) => {
 					fontSize={18}
 				/>
 			</Header>
-			<ScrollView
+			<FlatList
 				horizontal
 				showsHorizontalScrollIndicator={false}
-			>
-				{
-					items.map((item, index) => (
+				data={items}
+				renderItem={(data) => {
+					const {
+						item,
+						index
+					} = data;
+
+					return (
 						<TranslateAndOpacityAnimation
 							delayMultiplier={index}
-							key={uuid()}
 						>
 							<Item
 								isLastItem={index === (items.length - 1)}
@@ -90,9 +95,9 @@ const CatalogProductListContainer = (props) => {
 								/>
 							</Item>
 						</TranslateAndOpacityAnimation>
-					))
-				}
-			</ScrollView>
+					);
+				}}
+			/>
 		</Wrapper>
 	);
 };
