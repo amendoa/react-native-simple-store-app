@@ -1,9 +1,10 @@
 import React, {
 	Component
 } from 'react';
+
 import styled from 'styled-components/native';
 import constants from 'src/modules/constants';
-import uuid from 'uuid/v4';
+import PropTypes from 'prop-types';
 
 import {
 	FlatList
@@ -22,76 +23,67 @@ import {
 	TranslateAndOpacityAnimation
 } from 'src/shared/animations';
 
+import {
+	connect
+} from 'react-redux';
+
 const Wrapper = styled.View`
 	flex: 1;
 	align-items: center;
 	background-color: ${constants.colors.default}
 `;
 
-const catalogs = [
-	{
-		title: 'T-Shirts I',
-		key: uuid()
-	},
-	{
-		title: 'T-Shirts II',
-		key: uuid()
-	},
-	{
-		title: 'T-Shirts III',
-		key: uuid()
-	},
-	{
-		title: 'T-Shirts IV',
-		key: uuid()
-	},
-	{
-		title: 'T-Shirts V',
-		key: uuid()
-	},
-	{
-		title: 'T-Shirts VI',
-		key: uuid()
-	},
-	{
-		title: 'T-Shirts VII',
-		key: uuid()
-	},
-	{
-		title: 'T-Shirts VIII',
-		key: uuid()
-	}
-];
-
-export default class CatalogScene extends Component {
-	static navigationOptions = {
-		header: null
-	}
-
+class CatalogScene extends Component {
 	constructor (props) {
 		super(props);
 
 		this.state = {
-			isFetching: false
+			isRefreshing: false,
+			isLoadingMore: false,
+			currentPage: 1,
+			itemsByPage: 3
 		};
 	}
 
 	handleCatalogsRefresh = () => {
 		this.setState({
-			isFetching: true
+			isRefreshing: true
 		});
 
 		setTimeout(() => {
 			this.setState({
-				isFetching: false
+				isRefreshing: false
+			});
+		}, 5000);
+	}
+
+	handleCatalogsLoadMore = () => {
+		this.setState({
+			isLoadingMore: true
+		});
+
+		setTimeout(() => {
+			this.setState({
+				isLoadingMore: false
 			});
 		}, 5000);
 	}
 
 	render () {
 		const {
-			isFetching
+			isRefreshing,
+			isLoadingMore,
+			currentPage,
+			itemsByPage
 		} = this.state;
+
+		const {
+			catalogData
+		} = this.props;
+
+		const {
+			result
+		} = catalogData;
 
 		return (
 			<Wrapper>
@@ -123,11 +115,13 @@ export default class CatalogScene extends Component {
 				/>
 
 				<PullRefresh
-					isRefreshing={isFetching}
+					isRefreshing={isRefreshing}
+					isLoadingMore={isLoadingMore}
 					onRefresh={this.handleCatalogsRefresh}
+					onLoadMore={this.handleCatalogsLoadMore}
 				>
 					<FlatList
-						data={catalogs}
+						data={result}
 						scrollEnabled={false}
 						renderItem={(data) => {
 							const {
@@ -144,7 +138,7 @@ export default class CatalogScene extends Component {
 								>
 									<CatalogProductList
 										title={item.title}
-										isLastItem={index === (catalogs.length - 1)}
+										isLastItem={index === (result.length - 1)}
 										isFirstItem={index === 0}
 									/>
 								</TranslateAndOpacityAnimation>
@@ -156,3 +150,16 @@ export default class CatalogScene extends Component {
 		);
 	}
 }
+
+CatalogScene.propTypes = {
+	catalogData: PropTypes.shape({}).isRequired
+};
+
+const mapStateToProps = state => ({
+	catalogData: state.catalog
+});
+
+export default connect(
+	mapStateToProps,
+	null
+)(CatalogScene);

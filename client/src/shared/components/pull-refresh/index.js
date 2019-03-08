@@ -20,7 +20,6 @@ import {
 	Spinner
 } from 'src/shared/components';
 
-
 const RefreshAnimationContainer = styled(Animated.View)`
 	position: absolute;
 	display: flex;
@@ -137,13 +136,32 @@ export default class PullRefreshComponent extends React.Component {
 			gestureEnabled
 		} = this.state;
 
-		if (nativeEvent.contentOffset.y <= 0 && !gestureEnabled) {
+		const {
+			scrollLimitToLoadMore,
+			onLoadMore,
+			isLoadingMore
+		} = this.props;
+
+		const {
+			layoutMeasurement,
+			contentOffset,
+			contentSize
+		} = nativeEvent;
+
+		if (
+			(layoutMeasurement.height + contentOffset.y) >=	(contentSize.height - scrollLimitToLoadMore)
+			&& !isLoadingMore
+		) {
+			onLoadMore();
+		}
+
+		if (contentOffset.y <= 0 && !gestureEnabled) {
 			this.setState({
 				gestureEnabled: true
 			});
 		}
 
-		if (nativeEvent.contentOffset.y > 0 && gestureEnabled) {
+		if (contentOffset.y > 0 && gestureEnabled) {
 			this.setState({
 				gestureEnabled: false
 			});
@@ -202,7 +220,7 @@ export default class PullRefreshComponent extends React.Component {
 			extrapolate: 'clamp'
 		});
 
-		const teste = refreshHeight.interpolate({
+		const spinnerTranslate = refreshHeight.interpolate({
 			inputRange: [
 				0, refreshAnimationHeight
 			],
@@ -211,7 +229,7 @@ export default class PullRefreshComponent extends React.Component {
 			],
 			extrapolate: 'clamp'
 		});
-
+		console.log('pull refresh render');
 		return (
 			<Wrapper>
 				<RefreshAnimationContainer
@@ -222,7 +240,7 @@ export default class PullRefreshComponent extends React.Component {
 							opacity: spinnerOpacity,
 							transform: [
 								{
-									translateY: teste
+									translateY: spinnerTranslate
 								}
 							]
 						}}
@@ -273,14 +291,20 @@ PullRefreshComponent.defaultProps = {
 	children: null,
 	refreshAnimationHeight: 60,
 	translationYDivider: 0.5,
+	scrollLimitToLoadMore: 200,
 	isRefreshing: false,
-	onRefresh: () => {}
+	isLoadingMore: false,
+	onRefresh: () => {},
+	onLoadMore: () => {}
 };
 
 PullRefreshComponent.propTypes = {
 	children: PropTypes.node,
 	refreshAnimationHeight: PropTypes.number,
 	translationYDivider: PropTypes.number,
+	scrollLimitToLoadMore: PropTypes.number,
 	isRefreshing: PropTypes.bool,
-	onRefresh: PropTypes.func
+	isLoadingMore: PropTypes.bool,
+	onRefresh: PropTypes.func,
+	onLoadMore: PropTypes.func
 };
