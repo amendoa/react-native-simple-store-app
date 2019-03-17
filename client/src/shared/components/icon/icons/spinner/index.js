@@ -37,7 +37,7 @@ const SpinnerIconComponent = (props) => {
 			viewBox="0 0 64 64"
 		>
 			<Circle
-				stroke={constants.colors.gray}
+				stroke={constants.COLORS.GRAY}
 				strokeWidth="8"
 				strokeDasharray={circunference}
 				strokeDashoffset="0"

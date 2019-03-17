@@ -1,15 +1,17 @@
+import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {
-	Spinner
+	Sketch
 } from 'src/shared/components';
 
 jest.useFakeTimers();
+Date.now = jest.fn(() => 1503187200000);
 
-describe('<TranslateAndOpacity />', () => {
+describe('<Sketch />', () => {
 	const getWrapper = props => renderer.create(
-		<Spinner
+		<Sketch
 			{
 			...props
 			}
@@ -17,7 +19,8 @@ describe('<TranslateAndOpacity />', () => {
 	).toJSON();
 
 	const modelI = {
-
+		width: 100,
+		heigth: 100
 	};
 
 	it('renders correctly', () => {

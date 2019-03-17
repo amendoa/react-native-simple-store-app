@@ -1,13 +1,27 @@
 {
-	"name": "prod config",
-	"colors": {
-		"primary": "#5197ff",
-		"default": "#ffffff",
-		"dark": "#000000",
-		"gray": "#d0d0db"
+	"NAME": "prod config",
+	"COLORS": {
+		"PRIMARY": "#5197ff",
+		"DEFAULT": "#ffffff",
+		"DARK": "#000000",
+		"GRAY": "#d0d0db",
+		"DARK_GRAY": "#e4e2e2"
 	},
-	"fontSize": {
-		"small": 8,
-		"medium": 16
+	"FONT_SIZE": {
+		"SMALL": 8,
+		"MEDIUM": 16
+	},
+	"API": {
+		"ROOT": "http://www.mocky.io/v2/",
+		"MOCKY_DELAY": "1000ms",
+		"ACTIONS": {
+			"CATALOG": "5c8d5ea1310000672b4c267d"
+		},
+		"METHODS": {
+			"POST": "POST",
+			"PUT": "PUT",
+			"GET": "GET",
+			"DELETE": "DELETE"
+		}
 	}
 }

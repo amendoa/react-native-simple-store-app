@@ -38,7 +38,7 @@ const Wrapper = styled.View`
 `;
 
 const Container = styled(Animated.View)`
-	background-color: ${constants.colors.default};
+	background-color: ${constants.COLORS.DEFAULT};
 `;
 
 export default class PullRefreshComponent extends React.Component {
@@ -54,6 +54,7 @@ export default class PullRefreshComponent extends React.Component {
 		this.scrollRef = React.createRef();
 		this.panRef = React.createRef();
 		this.spinner = React.createRef();
+		this.offSetY = 0;
 	}
 
 	componentDidMount () {
@@ -73,6 +74,7 @@ export default class PullRefreshComponent extends React.Component {
 		const {
 			refreshAnimationHeight,
 			isRefreshing,
+			isFetching,
 			translationYDivider
 		} = this.props;
 
@@ -84,7 +86,7 @@ export default class PullRefreshComponent extends React.Component {
 			return;
 		}
 
-		if (!isRefreshing) {
+		if (!isRefreshing && !isFetching) {
 			const newrefreshHeightValue = translationY * translationYDivider;
 
 			this.spinner.current.setPercentage((newrefreshHeightValue / refreshAnimationHeight) * 100);
@@ -98,7 +100,8 @@ export default class PullRefreshComponent extends React.Component {
 			refreshAnimationHeight,
 			onRefresh,
 			isRefreshing,
-			translationYDivider
+			translationYDivider,
+			isFetching
 		} = this.props;
 
 		const {
@@ -113,7 +116,7 @@ export default class PullRefreshComponent extends React.Component {
 		];
 
 		if (endStates.includes(state)) {
-			if (!isRefreshing) {
+			if (!isRefreshing && !isFetching) {
 				this.spinner.current.setPercentage(0);
 
 				if ((translationY * translationYDivider) >= refreshAnimationHeight) {
@@ -139,7 +142,8 @@ export default class PullRefreshComponent extends React.Component {
 		const {
 			scrollLimitToLoadMore,
 			onLoadMore,
-			isLoadingMore
+			isFetching,
+			canLoadMore
 		} = this.props;
 
 		const {
@@ -150,7 +154,9 @@ export default class PullRefreshComponent extends React.Component {
 
 		if (
 			(layoutMeasurement.height + contentOffset.y) >=	(contentSize.height - scrollLimitToLoadMore)
-			&& !isLoadingMore
+			&& !isFetching
+			&& (contentOffset.y > this.offSetY)
+			&& canLoadMore
 		) {
 			onLoadMore();
 		}
@@ -166,6 +172,8 @@ export default class PullRefreshComponent extends React.Component {
 				gestureEnabled: false
 			});
 		}
+
+		this.offSetY = contentOffset.y;
 	};
 
 	runAnimation = () => {
@@ -229,7 +237,7 @@ export default class PullRefreshComponent extends React.Component {
 			],
 			extrapolate: 'clamp'
 		});
-		console.log('pull refresh render');
+
 		return (
 			<Wrapper>
 				<RefreshAnimationContainer
@@ -291,9 +299,10 @@ PullRefreshComponent.defaultProps = {
 	children: null,
 	refreshAnimationHeight: 60,
 	translationYDivider: 0.5,
-	scrollLimitToLoadMore: 200,
+	scrollLimitToLoadMore: 300,
 	isRefreshing: false,
-	isLoadingMore: false,
+	isFetching: false,
+	canLoadMore: true,
 	onRefresh: () => {},
 	onLoadMore: () => {}
 };
@@ -304,7 +313,8 @@ PullRefreshComponent.propTypes = {
 	translationYDivider: PropTypes.number,
 	scrollLimitToLoadMore: PropTypes.number,
 	isRefreshing: PropTypes.bool,
-	isLoadingMore: PropTypes.bool,
+	canLoadMore: PropTypes.bool,
+	isFetching: PropTypes.bool,
 	onRefresh: PropTypes.func,
 	onLoadMore: PropTypes.func
 };

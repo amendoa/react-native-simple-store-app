@@ -25,19 +25,19 @@ const getBackgroundColor = (props) => {
 	} = props;
 
 	const {
-		colors
+		COLORS
 	} = constants;
 
 	if (isOutlineButton) {
-		return colors.default;
+		return COLORS.DEFAULT;
 	}
 
 	if (isPrimaryButton) {
-		return colors.primary;
+		return COLORS.PRIMARY;
 	}
 
 	if (isDefaultButton) {
-		return colors.default;
+		return COLORS.DEFAULT;
 	}
 
 	return 'transparent';
@@ -50,11 +50,11 @@ const getBorder = (props) => {
 	} = props;
 
 	const {
-		colors
+		COLORS
 	} = constants;
 
 	if (isOutlineButton && isPrimaryButton) {
-		return `1.5px solid ${colors.primary}`;
+		return `1.5px solid ${COLORS.PRIMARY}`;
 	}
 
 	return '0px';

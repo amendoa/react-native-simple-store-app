@@ -21,15 +21,15 @@ const getIconColor = (props) => {
 	} = props;
 
 	if (isDarkIcon) {
-		return constants.colors.dark;
+		return constants.COLORS.DARK;
 	}
 
 	if (isPrimaryIcon) {
-		return constants.colors.primary;
+		return constants.COLORS.PRIMARY;
 	}
 
 	if (isDefaultIcon) {
-		return constants.colors.default;
+		return constants.COLORS.DEFAULT;
 	}
 
 	return 'transparent';
@@ -50,7 +50,7 @@ const TagContainer = styled.View`
 const Tag = styled.View`
 	width: 16;
 	height: 16;
-	background-color: ${constants.colors.primary};
+	background-color: ${constants.COLORS.PRIMARY};
 	border-radius: 50;
 `;
 

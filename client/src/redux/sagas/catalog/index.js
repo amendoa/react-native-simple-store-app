@@ -1,4 +1,6 @@
-import _ from 'lodash';
+import {
+	getCatalogs
+} from 'src/services/catalog';
 
 import {
 	takeLatest,
@@ -6,65 +8,54 @@ import {
 } from 'redux-saga/effects';
 
 import {
-	GET_CATALOGS
+	GET_CATALOGS,
+	REFRESH_GET_CATALOGS
 } from 'src/redux/constants/catalog';
 
 import * as catalogActions from 'src/redux/actions/catalog';
 
-const data = [
-	{
-		title: 'T-Shirts I',
-		key: 'catalog1'
-	},
-	{
-		title: 'T-Shirts II',
-		key: 'catalog2'
-	},
-	{
-		title: 'T-Shirts III',
-		key: 'catalog3'
-	},
-	{
-		title: 'T-Shirts IV',
-		key: 'catalog4'
-	},
-	{
-		title: 'T-Shirts V',
-		key: 'catalog5'
-	},
-	{
-		title: 'T-Shirts VI',
-		key: 'catalog6'
-	},
-	{
-		title: 'T-Shirts VII',
-		key: 'catalog7'
-	},
-	{
-		title: 'T-Shirts VIII',
-		key: 'catalog8'
-	},
-	{
-		title: 'T-Shirts IX',
-		key: 'catalog9'
-	}
-];
+let currentPage = 0;
 
-const getData = () => {
-	const currentPage = 1;
+const getData = (data, resetCurrentPage) => {
+	if (resetCurrentPage) {
+		currentPage = 1;
+	} else {
+		currentPage += 1;
+	}
+
 	const itemsByPage = 3;
 
-	return _.drop(data, 0).slice(0, currentPage * itemsByPage);
+	const result = data.slice(0, currentPage * itemsByPage);
+
+	return {
+		result,
+		canLoadMore: result.length < data.length
+	};
 };
 
-function* fetchGetCatalogsSaga () {
-	yield put(catalogActions.getCatalogsReceived({
-		result: getData()
-	}));
+function* getCatalogsSaga (action) {
+	const {
+		resetCurrentPage
+	} = action.params;
+
+	try {
+		const response = yield getCatalogs();
+
+		const {
+			result
+		} = response;
+
+		yield put(catalogActions.getCatalogsReceived({
+			...getData(result, resetCurrentPage)
+		}));
+	} catch (error) {
+		// TODO: drop error
+	}
 }
 
 const sagas = [
-	takeLatest(GET_CATALOGS, fetchGetCatalogsSaga)
+	takeLatest(GET_CATALOGS, getCatalogsSaga),
+	takeLatest(REFRESH_GET_CATALOGS, getCatalogsSaga)
 ];
 
 export default sagas;

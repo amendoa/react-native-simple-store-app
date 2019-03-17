@@ -6,6 +6,7 @@ import Tag from 'src/shared/components/tag';
 import Image from 'src/shared/components/image';
 import PullRefresh from 'src/shared/components/pull-refresh';
 import Spinner from 'src/shared/components/spinner';
+import Sketch from 'src/shared/components/sketch';
 
 export {
 	Button,
@@ -15,5 +16,6 @@ export {
 	Tag,
 	Image,
 	PullRefresh,
-	Spinner
+	Spinner,
+	Sketch
 };

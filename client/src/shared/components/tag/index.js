@@ -14,15 +14,15 @@ const getBackgroundColor = (props) => {
 	} = props;
 
 	const {
-		colors
+		COLORS
 	} = constants;
 
 	if (isPrimaryTag) {
-		return colors.primary;
+		return COLORS.PRIMARY;
 	}
 
 	if (isDefaultTag) {
-		return colors.default;
+		return COLORS.DEFAULT;
 	}
 
 	return 'transparent';

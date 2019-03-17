@@ -23,8 +23,9 @@ export default () => (
 				key="catalog"
 				component={Catalog}
 				onEnter={() => {
-					console.log('------------------------- on enter catalog')
-					store.dispatch(reduxCatalogActions.getCatalogs());
+					store.dispatch(reduxCatalogActions.getCatalogs({
+						resetCurrentPage: false
+					}));
 				}}
 			/>
 		</Stack>

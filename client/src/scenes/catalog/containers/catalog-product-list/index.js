@@ -6,7 +6,8 @@ import uuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 
 import {
-	FlatList
+	FlatList,
+	ScrollView
 } from 'react-native';
 
 import {
@@ -18,7 +19,8 @@ import {
 } from 'src/shared/animations';
 
 import {
-	Label
+	Label,
+	Sketch
 } from 'src/shared/components';
 
 const Wrapper = styled.View`
@@ -43,23 +45,51 @@ export default class CatalogProductListContainer extends PureComponent {
 		const {
 			title,
 			isLastItem,
-			isFirstItem
+			isFirstItem,
+			isFetching,
+			products
 		} = this.props;
 
-		const items = [
-			{
-				imageSource: 'http://192.168.0.100:7070/images/product1.jpg',
-				imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product1.jpg',
-				price: '40,99$',
-				key: uuid()
-			},
-			{
-				imageSource: 'http://192.168.0.100:7070/images/product2.jpg',
-				imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product2.jpg',
-				price: '49,99$',
-				key: uuid()
-			}
-		];
+		if (isFetching) {
+			return (
+				<Wrapper
+					isLastItem={isLastItem}
+					isFirstItem={isFirstItem}
+				>
+					<Header>
+						<Sketch
+							height={15}
+							width={50}
+						/>
+					</Header>
+					<ScrollView
+						horizontal
+						showsHorizontalScrollIndicator={false}
+					>
+						<Item
+							isFirstItem
+						>
+							<Sketch
+								height={180}
+								width={180}
+							/>
+						</Item>
+						<Item>
+							<Sketch
+								height={180}
+								width={180}
+							/>
+						</Item>
+						<Item>
+							<Sketch
+								height={180}
+								width={180}
+							/>
+						</Item>
+					</ScrollView>
+				</Wrapper>
+			);
+		}
 
 		return (
 			<Wrapper
@@ -76,7 +106,7 @@ export default class CatalogProductListContainer extends PureComponent {
 				<FlatList
 					horizontal
 					showsHorizontalScrollIndicator={false}
-					data={items}
+					data={products}
 					renderItem={(data) => {
 						const {
 							item,
@@ -87,7 +117,7 @@ export default class CatalogProductListContainer extends PureComponent {
 								delayMultiplier={index}
 							>
 								<Item
-									isLastItem={index === (items.length - 1)}
+									isLastItem={index === (products.length - 1)}
 									isFirstItem={index === 0}
 								>
 									<CatalogProductCard
@@ -108,11 +138,20 @@ export default class CatalogProductListContainer extends PureComponent {
 CatalogProductListContainer.defaultProps = {
 	title: '',
 	isLastItem: false,
-	isFirstItem: false
+	isFirstItem: false,
+	isFetching: false,
+	products: []
 };
 
 CatalogProductListContainer.propTypes = {
 	title: PropTypes.string,
 	isLastItem: PropTypes.bool,
-	isFirstItem: PropTypes.bool
+	isFirstItem: PropTypes.bool,
+	isFetching: PropTypes.bool,
+	products: PropTypes.arrayOf(PropTypes.shape({
+		imageSource: PropTypes.string,
+		imageThumbnailSource: PropTypes.string,
+		price: PropTypes.string,
+		key: PropTypes.string
+	}))
 };

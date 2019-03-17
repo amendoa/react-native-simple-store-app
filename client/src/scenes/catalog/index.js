@@ -5,9 +5,11 @@ import React, {
 import styled from 'styled-components/native';
 import constants from 'src/modules/constants';
 import PropTypes from 'prop-types';
+import * as catalogActions from 'src/redux/actions/catalog';
 
 import {
-	FlatList
+	FlatList,
+	View
 } from 'react-native';
 
 import {
@@ -27,62 +29,53 @@ import {
 	connect
 } from 'react-redux';
 
+import {
+	bindActionCreators
+} from 'redux';
+
 const Wrapper = styled.View`
 	flex: 1;
 	align-items: center;
-	background-color: ${constants.colors.default}
+	background-color: ${constants.COLORS.DEFAULT}
 `;
 
 class CatalogScene extends Component {
 	constructor (props) {
 		super(props);
 
-		this.state = {
-			isRefreshing: false,
-			isLoadingMore: false,
-			currentPage: 1,
-			itemsByPage: 3
-		};
+		this.state = {};
 	}
 
 	handleCatalogsRefresh = () => {
-		this.setState({
-			isRefreshing: true
-		});
+		const {
+			catalogDispatchActions
+		} = this.props;
 
-		setTimeout(() => {
-			this.setState({
-				isRefreshing: false
-			});
-		}, 5000);
+		catalogDispatchActions.refreshGetCatalogs({
+			resetCurrentPage: true
+		});
 	}
 
 	handleCatalogsLoadMore = () => {
-		this.setState({
-			isLoadingMore: true
-		});
+		const {
+			catalogDispatchActions
+		} = this.props;
 
-		setTimeout(() => {
-			this.setState({
-				isLoadingMore: false
-			});
-		}, 5000);
+		catalogDispatchActions.getCatalogs({
+			resetCurrentPage: false
+		});
 	}
 
 	render () {
-		const {
-			isRefreshing,
-			isLoadingMore,
-			currentPage,
-			itemsByPage
-		} = this.state;
-
 		const {
 			catalogData
 		} = this.props;
 
 		const {
-			result
+			result,
+			isFetching,
+			isRefreshing,
+			canLoadMore
 		} = catalogData;
 
 		return (
@@ -113,12 +106,12 @@ class CatalogScene extends Component {
 						}
 					]}
 				/>
-
 				<PullRefresh
 					isRefreshing={isRefreshing}
-					isLoadingMore={isLoadingMore}
+					isFetching={isFetching}
 					onRefresh={this.handleCatalogsRefresh}
 					onLoadMore={this.handleCatalogsLoadMore}
+					canLoadMore={canLoadMore}
 				>
 					<FlatList
 						data={result}
@@ -129,6 +122,11 @@ class CatalogScene extends Component {
 								index
 							} = data;
 
+							const {
+								title,
+								products
+							} = item;
+
 							return (
 								<TranslateAndOpacityAnimation
 									delayMultiplier={index}
@@ -137,7 +135,8 @@ class CatalogScene extends Component {
 									doOpacity={false}
 								>
 									<CatalogProductList
-										title={item.title}
+										title={title}
+										products={products}
 										isLastItem={index === (result.length - 1)}
 										isFirstItem={index === 0}
 									/>
@@ -145,6 +144,24 @@ class CatalogScene extends Component {
 							);
 						}}
 					/>
+					{
+						isFetching && (
+							<View>
+								<CatalogProductList
+									title=""
+									isLastItem={false}
+									isFirstItem
+									isFetching
+								/>
+								<CatalogProductList
+									title=""
+									isLastItem={false}
+									isFirstItem
+									isFetching
+								/>
+							</View>
+						)
+					}
 				</PullRefresh>
 			</Wrapper>
 		);
@@ -152,14 +169,19 @@ class CatalogScene extends Component {
 }
 
 CatalogScene.propTypes = {
-	catalogData: PropTypes.shape({}).isRequired
+	catalogData: PropTypes.shape({}).isRequired,
+	catalogDispatchActions: PropTypes.shape({}).isRequired
 };
 
 const mapStateToProps = state => ({
 	catalogData: state.catalog
 });
 
+const mapDispatchToProps = dispatch => ({
+	catalogDispatchActions: bindActionCreators(catalogActions, dispatch)
+});
+
 export default connect(
 	mapStateToProps,
-	null
+	mapDispatchToProps
 )(CatalogScene);

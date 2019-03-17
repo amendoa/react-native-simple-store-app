@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 const Wrapper = styled.View`
 	width: ${props => props.width};
 	height: ${props => props.height};
-	background-color: ${constants.colors.gray};
+	background-color: ${constants.COLORS.GRAY};
 `;
 
 

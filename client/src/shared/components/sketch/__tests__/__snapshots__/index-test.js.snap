@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sketch /> renders correctly 1`] = `
+<View
+  height={50}
+  style={
+    Object {
+      "backgroundColor": "#e4e2e2",
+      "height": 50,
+      "opacity": 0.5,
+      "width": 100,
+    }
+  }
+  width={100}
+/>
+`;

@@ -11,19 +11,19 @@ const getColor = (props) => {
 	} = props;
 
 	const {
-		colors
+		COLORS
 	} = constants;
 
 	if (isPrimaryLabel) {
-		return colors.primary;
+		return COLORS.PRIMARY;
 	}
 
 	if (isDarkLabel) {
-		return colors.dark;
+		return COLORS.DARK;
 	}
 
 	if (isDefaultLabel) {
-		return colors.default;
+		return COLORS.DEFAULT;
 	}
 
 	return 'transparent';
