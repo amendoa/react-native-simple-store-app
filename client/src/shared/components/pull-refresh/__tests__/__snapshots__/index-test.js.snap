@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PullRefresh /> renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "width": "100%",
+      },
+    ]
+  }
+>
+  <View
+    height={60}
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+        "height": 60,
+        "justifyContent": "center",
+        "position": "absolute",
+        "width": "100%",
+        "zIndex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "opacity": 0,
+          "transform": Array [
+            Object {
+              "translateY": 5,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "justifyContent": "center",
+            "transform": Array [
+              Object {
+                "rotateZ": "0deg",
+              },
+            ],
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "display": "flex",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "marginRight": 0,
+                },
+              ]
+            }
+            tag={false}
+          >
+            <RNSVGSvgView
+              align="xMidYMid"
+              bbHeight="32"
+              bbWidth="32"
+              color="#5197ff"
+              height="32"
+              icon="spinner"
+              meetOrSlice={0}
+              minX={0}
+              minY={0}
+              percentage={0}
+              primary={true}
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderWidth": 0,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "display": "flex",
+                    "justifyContent": "center",
+                  },
+                  false,
+                  Object {
+                    "flex": 0,
+                    "height": 32,
+                    "width": 32,
+                  },
+                ]
+              }
+              tag={false}
+              tintColor="#5197ff"
+              vbHeight={64}
+              vbWidth={64}
+              width="32"
+            >
+              <RNSVGGroup
+                fill={
+                  Array [
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                  ]
+                }
+                fillOpacity={1}
+                fillRule={1}
+                font={Object {}}
+                matrix={
+                  Array [
+                    1,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                  ]
+                }
+                opacity={1}
+                originX={0}
+                originY={0}
+                propList={Array []}
+                rotation={0}
+                scaleX={1}
+                scaleY={1}
+                skewX={0}
+                skewY={0}
+                stroke={null}
+                strokeDasharray={null}
+                strokeDashoffset={null}
+                strokeLinecap={0}
+                strokeLinejoin={0}
+                strokeMiterlimit={4}
+                strokeOpacity={1}
+                strokeWidth="1"
+                x={0}
+                y={0}
+              >
+                <RNSVGCircle
+                  cx="32"
+                  cy="32"
+                  fill={null}
+                  fillOpacity={1}
+                  fillRule={1}
+                  matrix={
+                    Array [
+                      1,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                    ]
+                  }
+                  opacity={1}
+                  originX={0}
+                  originY={0}
+                  propList={
+                    Array [
+                      "stroke",
+                      "strokeWidth",
+                      "strokeDasharray",
+                      "strokeDashoffset",
+                      "fill",
+                    ]
+                  }
+                  r="26"
+                  rotation={0}
+                  scaleX={1}
+                  scaleY={1}
+                  skewX={0}
+                  skewY={0}
+                  stroke={
+                    Array [
+                      0,
+                      0.9411764705882353,
+                      0.9411764705882353,
+                      0.9411764705882353,
+                      1,
+                    ]
+                  }
+                  strokeDasharray={
+                    Array [
+                      "163.36281798666926",
+                      "163.36281798666926",
+                    ]
+                  }
+                  strokeDashoffset={0}
+                  strokeLinecap={0}
+                  strokeLinejoin={0}
+                  strokeMiterlimit={4}
+                  strokeOpacity={1}
+                  strokeWidth="8"
+                  x={0}
+                  y={0}
+                />
+                <RNSVGCircle
+                  cx="32"
+                  cy="32"
+                  fill={null}
+                  fillOpacity={1}
+                  fillRule={1}
+                  matrix={
+                    Array [
+                      1,
+                      0,
+                      0,
+                      1,
+                      0,
+                      0,
+                    ]
+                  }
+                  opacity={1}
+                  originX={0}
+                  originY={0}
+                  propList={
+                    Array [
+                      "stroke",
+                      "strokeWidth",
+                      "strokeDasharray",
+                      "strokeDashoffset",
+                      "fill",
+                    ]
+                  }
+                  r="26"
+                  rotation={0}
+                  scaleX={1}
+                  scaleY={1}
+                  skewX={0}
+                  skewY={0}
+                  stroke={
+                    Array [
+                      0,
+                      0.3176470588235294,
+                      0.592156862745098,
+                      1,
+                      1,
+                    ]
+                  }
+                  strokeDasharray={
+                    Array [
+                      "163.36281798666926",
+                      "163.36281798666926",
+                    ]
+                  }
+                  strokeDashoffset={163.36281798666926}
+                  strokeLinecap={0}
+                  strokeLinejoin={0}
+                  strokeMiterlimit={4}
+                  strokeOpacity={1}
+                  strokeWidth="8"
+                  x={0}
+                  y={0}
+                />
+              </RNSVGGroup>
+            </RNSVGSvgView>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      activeOffsetY={5}
+      enabled={true}
+      failOffsetY={-5}
+      onGestureEvent={[Function]}
+      onHandlerStateChange={[Function]}
+    >
+      <View
+        onScroll={[Function]}
+        scrollEnabled={true}
+        scrollEventThrottle={40}
+        waitFor={
+          Array [
+            Object {
+              "current": null,
+            },
+          ]
+        }
+      >
+        <Text>
+          teste
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

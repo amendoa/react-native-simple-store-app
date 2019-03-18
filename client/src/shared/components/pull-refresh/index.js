@@ -15,7 +15,6 @@ import {
 	Animated
 } from 'react-native';
 
-
 import {
 	Spinner
 } from 'src/shared/components';
