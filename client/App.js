@@ -4,7 +4,8 @@ import React, {
 
 import {
 	View,
-	Text
+	Text,
+	StatusBar
 } from 'react-native';
 
 import {
@@ -60,6 +61,11 @@ export default class App extends Component {
 			<Provider
 				store={store}
 			>
+				<StatusBar
+					translucent={false}
+					backgroundColor="#ffffff"
+					barStyle="dark-content"
+				/>
 				<Router />
 			</Provider>
 		);

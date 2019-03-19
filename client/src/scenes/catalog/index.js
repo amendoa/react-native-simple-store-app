@@ -9,7 +9,9 @@ import * as catalogActions from 'src/redux/actions/catalog';
 
 import {
 	FlatList,
-	View
+	View,
+	StatusBar,
+	Platform
 } from 'react-native';
 
 import {
@@ -36,7 +38,8 @@ import {
 const Wrapper = styled.View`
 	flex: 1;
 	align-items: center;
-	background-color: ${constants.COLORS.DEFAULT}
+	background-color: ${constants.COLORS.DEFAULT};
+	padding-top: ${Platform.OS === 'ios' ? StatusBar.currentHeight : 0}
 `;
 
 class CatalogScene extends Component {
