@@ -19,7 +19,7 @@ const middlewares = [
 
 let composeEnhancer = compose;
 
-if (isDevelopmentEnv()) {
+if (isDevelopmentEnv() && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
 	composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 }
 

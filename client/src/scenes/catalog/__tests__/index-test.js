@@ -1,6 +1,6 @@
 import 'react-native';
-import React from 'react';
 import renderer from 'react-test-renderer';
+import React from 'react';
 import store from 'src/redux/store';
 
 import {
@@ -11,9 +11,17 @@ import {
 	Catalog
 } from 'src/scenes';
 
-describe('<CatalogScene />', () => {
+jest.mock('react-native-gesture-handler', () => ({
+	PanGestureHandler: 'View',
+	State: {},
+	ScrollView: 'View'
+}));
+
+describe('<Catalog />', () => {
 	const getWrapper = () => renderer.create(
-		<Provider store={store}>
+		<Provider
+			store={store}
+		>
 			<Catalog />
 		</Provider>
 	).toJSON();
