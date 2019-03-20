@@ -33,7 +33,7 @@ import {
 	bindActionCreators
 } from 'redux';
 
-const Wrapper = styled.View`
+const Wrapper = styled.SafeAreaView`
 	flex: 1;
 	align-items: center;
 	background-color: ${constants.COLORS.DEFAULT};

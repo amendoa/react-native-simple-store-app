@@ -13,7 +13,7 @@ import {
 	Platform
 } from 'react-native';
 
-const Wrapper = styled.View`
+const Wrapper = styled.SafeAreaView`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -56,11 +56,7 @@ const NavbarComponent = (props) => {
 	} = props;
 
 	return (
-		<Wrapper
-			style={{
-				marginTop: Platform.OS === 'ios' ? StatusBar.currentHeight : 0
-			}}
-		>
+		<Wrapper>
 			<LeftItem>
 				{
 					leftIcon && (
