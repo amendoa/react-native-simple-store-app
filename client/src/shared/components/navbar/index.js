@@ -2,10 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import uuid from 'uuid/v4';
+
 import {
 	Button,
 	Label
 } from 'src/shared/components';
+
+import {
+	StatusBar,
+	Platform
+} from 'react-native';
 
 const Wrapper = styled.View`
 	display: flex;
@@ -50,7 +56,11 @@ const NavbarComponent = (props) => {
 	} = props;
 
 	return (
-		<Wrapper>
+		<Wrapper
+			style={{
+				marginTop: Platform.OS === 'ios' ? StatusBar.currentHeight : 0
+			}}
+		>
 			<LeftItem>
 				{
 					leftIcon && (

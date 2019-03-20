@@ -9,9 +9,7 @@ import * as catalogActions from 'src/redux/actions/catalog';
 
 import {
 	FlatList,
-	View,
-	StatusBar,
-	Platform
+	View
 } from 'react-native';
 
 import {
