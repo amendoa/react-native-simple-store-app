@@ -81,11 +81,7 @@ class CatalogScene extends Component {
 		} = catalogData;
 
 		return (
-			<Wrapper
-				style={{
-					paddingTop: Platform.OS === 'ios' ? StatusBar.currentHeight : 0
-				}}
-			>
+			<Wrapper>
 				<Navbar
 					title="Catalog"
 					rightIcons={[
