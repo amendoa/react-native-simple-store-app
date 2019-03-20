@@ -2,7 +2,6 @@ import React, {
 	PureComponent
 } from 'react';
 import styled from 'styled-components/native';
-import uuid from 'uuid/v4';
 import PropTypes from 'prop-types';
 
 import {

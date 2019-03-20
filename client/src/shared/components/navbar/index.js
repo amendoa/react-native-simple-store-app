@@ -8,11 +8,6 @@ import {
 	Label
 } from 'src/shared/components';
 
-import {
-	StatusBar,
-	Platform
-} from 'react-native';
-
 const Wrapper = styled.SafeAreaView`
 	display: flex;
 	align-items: center;

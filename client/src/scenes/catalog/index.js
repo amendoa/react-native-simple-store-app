@@ -46,6 +46,16 @@ class CatalogScene extends Component {
 		this.state = {};
 	}
 
+	componentDidMount () {
+		const {
+			catalogDispatchActions
+		} = this.props;
+
+		catalogDispatchActions.getCatalogs({
+			resetCurrentPage: false
+		});
+	}
+
 	handleCatalogsRefresh = () => {
 		const {
 			catalogDispatchActions
@@ -77,6 +87,8 @@ class CatalogScene extends Component {
 			isRefreshing,
 			canLoadMore
 		} = catalogData;
+
+		// console.log("props", this.props.navigation)
 
 		return (
 			<Wrapper>

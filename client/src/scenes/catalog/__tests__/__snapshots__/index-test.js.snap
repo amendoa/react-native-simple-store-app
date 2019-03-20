@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Catalog /> renders correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     Array [
       Object {
@@ -14,7 +14,7 @@ exports[`<Catalog /> renders correctly 1`] = `
     ]
   }
 >
-  <View
+  <RCTSafeAreaView
     style={
       Array [
         Object {
@@ -596,7 +596,7 @@ exports[`<Catalog /> renders correctly 1`] = `
         </View>
       </View>
     </View>
-  </View>
+  </RCTSafeAreaView>
   <View
     style={
       Array [
@@ -906,5 +906,5 @@ exports[`<Catalog /> renders correctly 1`] = `
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;
