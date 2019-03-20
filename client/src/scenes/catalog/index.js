@@ -39,7 +39,6 @@ const Wrapper = styled.View`
 	flex: 1;
 	align-items: center;
 	background-color: ${constants.COLORS.DEFAULT};
-	padding-top: ${Platform.OS === 'ios' ? StatusBar.currentHeight : 0}
 `;
 
 class CatalogScene extends Component {
@@ -82,7 +81,11 @@ class CatalogScene extends Component {
 		} = catalogData;
 
 		return (
-			<Wrapper>
+			<Wrapper
+				style={{
+					paddingTop: Platform.OS === 'ios' ? StatusBar.currentHeight : 0
+				}}
+			>
 				<Navbar
 					title="Catalog"
 					rightIcons={[
