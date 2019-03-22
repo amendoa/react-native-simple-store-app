@@ -13,6 +13,7 @@ import {
 
 const Wrapper = styled.View`
 	flex-direction: row;
+	background-color: ${constants.COLORS.DEFAULT};
 `;
 
 const NumberContainer = styled.View`
@@ -32,7 +33,7 @@ export default class InputNumberComponent extends Component {
 
 		const newValue = value - 1;
 
-		if (newValue >= 0) {
+		if (newValue >= 1) {
 			handleChangeValue(newValue);
 		}
 	}

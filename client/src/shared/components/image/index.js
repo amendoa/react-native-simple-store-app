@@ -127,6 +127,12 @@ ImageComponent.defaultProps = {
 ImageComponent.propTypes = {
 	source: PropTypes.string,
 	thumbnailSource: PropTypes.string,
-	width: PropTypes.number,
-	height: PropTypes.number
+	width: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
+	height: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	])
 };

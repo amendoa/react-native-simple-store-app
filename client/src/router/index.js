@@ -1,6 +1,7 @@
 import {
 	Catalog,
-	ProductDetails
+	ProductDetails,
+	Bag
 } from 'src/scenes';
 
 import {
@@ -110,6 +111,12 @@ const AppNavigator = createStackNavigator({
 	},
 	productDetails: {
 		screen: ProductDetails,
+		navigationOptions: () => ({
+			header: null
+		})
+	},
+	bag: {
+		screen: Bag,
 		navigationOptions: () => ({
 			header: null
 		})

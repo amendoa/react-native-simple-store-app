@@ -22,7 +22,9 @@ describe('<Catalog />', () => {
 		<Provider
 			store={store}
 		>
-			<Catalog />
+			<Catalog
+				navigation={{}}
+			/>
 		</Provider>
 	).toJSON();
 

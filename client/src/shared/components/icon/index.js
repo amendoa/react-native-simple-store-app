@@ -5,12 +5,13 @@ import styled from 'styled-components/native';
 
 import {
 	ArrowLeftIcon,
-	ChevronLeftIconComponent,
-	ChevronRightIconComponent,
-	CloseIconComponent,
-	BagIconComponent,
-	InfoIconComponent,
-	SpinnerIconComponent
+	ChevronLeftIcon,
+	ChevronRightIcon,
+	CloseIcon,
+	BagIcon,
+	InfoIcon,
+	SpinnerIcon,
+	BagCheckIcon
 } from 'src/shared/components/icon/icons';
 
 const getIconColor = (props) => {
@@ -76,7 +77,7 @@ const renderIcon = (props) => {
 
 		case 'chevron-left':
 			return (
-				<ChevronLeftIconComponent
+				<ChevronLeftIcon
 					{
 					...props
 					}
@@ -86,7 +87,7 @@ const renderIcon = (props) => {
 
 		case 'chevron-right':
 			return (
-				<ChevronRightIconComponent
+				<ChevronRightIcon
 					{
 					...props
 					}
@@ -96,7 +97,7 @@ const renderIcon = (props) => {
 
 		case 'close':
 			return (
-				<CloseIconComponent
+				<CloseIcon
 					{
 					...props
 					}
@@ -106,7 +107,7 @@ const renderIcon = (props) => {
 
 		case 'bag':
 			return (
-				<BagIconComponent
+				<BagIcon
 					{
 					...props
 					}
@@ -116,7 +117,7 @@ const renderIcon = (props) => {
 
 		case 'info':
 			return (
-				<InfoIconComponent
+				<InfoIcon
 					{
 					...props
 					}
@@ -126,11 +127,20 @@ const renderIcon = (props) => {
 
 		case 'spinner':
 			return (
-				<SpinnerIconComponent
+				<SpinnerIcon
 					{
 					...props
 					}
 					color={getIconColor(props)}
+				/>
+			);
+
+		case 'bag-check':
+			return (
+				<BagCheckIcon
+					{
+					...props
+					}
 				/>
 			);
 

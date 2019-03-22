@@ -7,6 +7,8 @@ import Image from 'src/shared/components/image';
 import PullRefresh from 'src/shared/components/pull-refresh';
 import Spinner from 'src/shared/components/spinner';
 import Sketch from 'src/shared/components/sketch';
+import InputNumber from 'src/shared/components/input-number';
+import SelectColor from 'src/shared/components/select-color';
 
 export {
 	Button,
@@ -17,5 +19,7 @@ export {
 	Image,
 	PullRefresh,
 	Spinner,
-	Sketch
+	Sketch,
+	InputNumber,
+	SelectColor
 };

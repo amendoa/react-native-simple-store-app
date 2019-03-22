@@ -3,12 +3,12 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 
 import {
-	CatalogProductCard
-} from 'src/scenes/catalog/components';
+	BuyedModal
+} from 'src/scenes/product-details/containers';
 
 describe('<Label />', () => {
 	const getWrapper = props => renderer.create(
-		<CatalogProductCard
+		<BuyedModal
 			{
 			...props
 			}
@@ -16,9 +16,8 @@ describe('<Label />', () => {
 	).toJSON();
 
 	const modelI = {
-		imageSource: 'http://192.168.0.100:7070/images/product1.jpg',
-		imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product1.jpg',
-		price: '40,99$',
+		isVisible: true,
+		handleCloseModal: () => {},
 		navigation: {}
 	};
 

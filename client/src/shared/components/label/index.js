@@ -64,7 +64,10 @@ LabelComponent.defaultProps = {
 };
 
 LabelComponent.propTypes = {
-	text: PropTypes.string,
+	text: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number
+	]),
 	fontSize: PropTypes.number,
 	margin: PropTypes.string
 };

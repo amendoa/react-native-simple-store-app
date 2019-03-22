@@ -68,7 +68,7 @@ const ButtonWrapper = styled(Animated.View)`
 	background-color: ${props => getBackgroundColor(props)};
 	width: ${props => props.width};
 	height: ${props => props.height};
-	margin: 0;
+	margin: ${props => props.buttonMargin};
 	border: ${props => getBorder(props)};
 	padding: ${props => props.buttonPadding};
 `;
@@ -174,7 +174,8 @@ ButtonComponent.defaultProps = {
 	icon: {},
 	onPress: () => {},
 	children: null,
-	buttonPadding: '8px 8px 8px 8px'
+	buttonPadding: '8px 8px 8px 8px',
+	buttonMargin: '0px 0px 0px 0px'
 };
 
 ButtonComponent.propTypes = {
@@ -188,4 +189,5 @@ ButtonComponent.propTypes = {
 	onPress: PropTypes.func,
 	children: PropTypes.node,
 	buttonPadding: PropTypes.string,
+	buttonMargin: PropTypes.string
 };

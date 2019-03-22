@@ -16,7 +16,9 @@ describe('<ProductDetails />', () => {
 		<Provider
 			store={store}
 		>
-			<ProductDetails />
+			<ProductDetails
+				navigation={{}}
+			/>
 		</Provider>
 	).toJSON();
 

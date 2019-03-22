@@ -76,6 +76,14 @@ class CatalogScene extends Component {
 		});
 	}
 
+	handleBagIconPress = () => {
+		const {
+			navigation
+		} = this.props;
+
+		navigation.navigate('bag');
+	}
+
 	render () {
 		const {
 			catalogData
@@ -87,8 +95,6 @@ class CatalogScene extends Component {
 			isRefreshing,
 			canLoadMore
 		} = catalogData;
-
-		// console.log("props", this.props.navigation)
 
 		return (
 			<Wrapper>
@@ -113,8 +119,7 @@ class CatalogScene extends Component {
 								dark: true,
 								tag: true
 							},
-							onPress: () => {
-							}
+							onPress: this.handleBagIconPress
 						}
 					]}
 				/>
@@ -182,7 +187,8 @@ class CatalogScene extends Component {
 
 CatalogScene.propTypes = {
 	catalogData: PropTypes.shape({}).isRequired,
-	catalogDispatchActions: PropTypes.shape({}).isRequired
+	catalogDispatchActions: PropTypes.shape({}).isRequired,
+	navigation: PropTypes.shape({}).isRequired
 };
 
 const mapStateToProps = state => ({
