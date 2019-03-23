@@ -26,15 +26,16 @@ const Container = styled.View`
 	background-color: ${constants.COLORS.DEFAULT};
 `;
 
-const ActionsContainer = styled.View`
+const ActionsContainer = styled.SafeAreaView`
 	width: 100%;
+	margin: 0px 0px 16px 0px;
 `;
 
-const IconContainer = styled.View`
+const IconContainer = styled.SafeAreaView`
 	margin-top: 128px;
 `;
 
-const CloseButtonContainer = styled.View`
+const CloseButtonContainer = styled.SafeAreaView`
 	right: 0;
 	top: 0;
 	position: absolute;
@@ -94,6 +95,7 @@ const BuyedModalContainer = (props) => {
 							handleCloseModal();
 							navigation.navigate('catalog');
 						}}
+						buttonMargin="0px 0px 16px 0px"
 					/>
 					<Button
 						primary
@@ -109,7 +111,6 @@ const BuyedModalContainer = (props) => {
 							handleCloseModal();
 							navigation.navigate('bag');
 						}}
-						buttonMargin="16px 0px 0px 0px"
 					/>
 				</ActionsContainer>
 			</Container>

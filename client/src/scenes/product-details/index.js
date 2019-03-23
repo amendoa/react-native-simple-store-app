@@ -30,7 +30,7 @@ const Wrapper = styled.SafeAreaView`
 	background-color: ${constants.COLORS.DEFAULT};
 `;
 
-const Content = styled.SafeAreaView`
+const Content = styled.View`
 	flex: 1;
 	align-items: center;
 	background-color: ${constants.COLORS.DEFAULT};
@@ -57,14 +57,14 @@ const DirectionsContainer = styled.View`
 	flex-direction: row;
 `;
 
-const ActionsContainer = styled.SafeAreaView`
+const ActionsContainer = styled.View`
 	align-items: center;
 	background-color: ${constants.COLORS.PRIMARY};
 	width: 100%;
 	padding: 16px 40px 16px 16px;
 `;
 
-const SelectContainer = styled.SafeAreaView`
+const SelectContainer = styled.View`
 	flex-direction: row;
 	justify-content: space-between;
 	margin-bottom: 32px;
