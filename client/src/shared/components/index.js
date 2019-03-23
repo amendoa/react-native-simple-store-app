@@ -9,6 +9,7 @@ import Spinner from 'src/shared/components/spinner';
 import Sketch from 'src/shared/components/sketch';
 import InputNumber from 'src/shared/components/input-number';
 import SelectColor from 'src/shared/components/select-color';
+import ConfirmAlert from 'src/shared/components/confirm-alert';
 
 export {
 	Button,
@@ -21,5 +22,6 @@ export {
 	Spinner,
 	Sketch,
 	InputNumber,
-	SelectColor
+	SelectColor,
+	ConfirmAlert
 };

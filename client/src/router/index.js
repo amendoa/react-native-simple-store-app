@@ -120,9 +120,10 @@ const AppNavigator = createStackNavigator({
 		navigationOptions: () => ({
 			header: null
 		})
-	}
+	},
 }, {
-	transitionConfig: TransitionConfiguration
+	transitionConfig: TransitionConfiguration,
+	initialRouteName: 'bag'
 });
 
 export default createAppContainer(AppNavigator);

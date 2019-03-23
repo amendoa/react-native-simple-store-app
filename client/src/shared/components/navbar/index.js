@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import uuid from 'uuid/v4';
+import constants from 'src/modules/constants';
 
 import {
 	Button,
@@ -16,6 +17,7 @@ const Wrapper = styled.SafeAreaView`
 	width: 100%;
 	height: 64;
 	padding: 8px;
+	background-color: ${constants.COLORS.DEFAULT};
 `;
 
 const LeftItem = styled.View`

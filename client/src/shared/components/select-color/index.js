@@ -8,8 +8,6 @@ import {
 } from 'src/shared/components';
 
 const Wrapper = styled.View`
-	width: 40px;
-	height: 40px;
 	flex-direction: row;
 `;
 const ColorItem = styled.View`

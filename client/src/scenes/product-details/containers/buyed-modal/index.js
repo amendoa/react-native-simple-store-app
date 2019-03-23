@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
+import constants from 'src/modules/constants';
 
 import {
 	withNavigation
@@ -12,7 +13,6 @@ import {
 
 import {
 	Button,
-	Navbar,
 	Icon,
 	Label
 } from 'src/shared/components';
@@ -20,9 +20,10 @@ import {
 const Container = styled.View`
 	flex: 1;
 	width: 100%;
-	padding: 24px;
+	padding: 0px 24px 24px 24px;
 	align-items: center;
 	justify-content: space-between;
+	background-color: ${constants.COLORS.DEFAULT};
 `;
 
 const ActionsContainer = styled.View`
@@ -30,7 +31,13 @@ const ActionsContainer = styled.View`
 `;
 
 const IconContainer = styled.View`
-	margin-top: 64px;
+	margin-top: 128px;
+`;
+
+const CloseButtonContainer = styled.View`
+	right: 0;
+	top: 0;
+	position: absolute;
 `;
 
 const BuyedModalContainer = (props) => {
@@ -42,26 +49,24 @@ const BuyedModalContainer = (props) => {
 	return (
 		<Modal
 			animationType="slide"
-			transparent={false}
+			transparent
 			visible={isVisible}
 			onRequestClose={() => {}}
 		>
-			<Navbar
-				rightIcons={[
-					{
-						icon: {
-							icon: 'close',
-							width: '24',
-							height: '24',
-							dark: true
-						},
-						onPress: () => {
-							handleCloseModal();
-						}
-					}
-				]}
-			/>
 			<Container>
+				<CloseButtonContainer>
+					<Button
+						icon={{
+							icon: 'close',
+							width: '30',
+							height: '30',
+							dark: true
+						}}
+						onPress={() => {
+							handleCloseModal();
+						}}
+					/>
+				</CloseButtonContainer>
 				<IconContainer>
 					<Icon
 						icon="bag-check"
