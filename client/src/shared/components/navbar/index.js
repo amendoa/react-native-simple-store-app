@@ -9,7 +9,7 @@ import {
 	Label
 } from 'src/shared/components';
 
-const Wrapper = styled.SafeAreaView`
+const Wrapper = styled.View`
 	display: flex;
 	align-items: center;
 	justify-content: center;

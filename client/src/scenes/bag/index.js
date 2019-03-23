@@ -43,7 +43,7 @@ const CheckoutButtonContainer = styled.View`
 	bottom: 0;
 	right: 0;
 	left: 0;
-	padding: 24px;
+	padding: 16px 24px 16px 24px;
 	background-color: ${constants.COLORS.DEFAULT};
 `;
 

@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import constants from 'src/modules/constants';
 
 import {
-	withNavigation
+	withNavigation,
+	SafeAreaView
 } from 'react-navigation';
 
 import {
@@ -17,7 +18,7 @@ import {
 	Label
 } from 'src/shared/components';
 
-const Container = styled.View`
+const Container = styled(SafeAreaView)`
 	flex: 1;
 	width: 100%;
 	justify-content: space-between;
@@ -25,19 +26,19 @@ const Container = styled.View`
 	background-color: red;
 `;
 
-const ActionsContainer = styled.SafeAreaView`
+const ActionsContainer = styled(SafeAreaView)`
 	width: 100%;
-	padding: 0px 24px 32px 24px;
+	padding: 0px 24px 16px 24px;
 	background-color: green;
 	align-self: flex-end;
 `;
 
-const IconContainer = styled.SafeAreaView`
+const IconContainer = styled(SafeAreaView)`
 	align-self: center;
 	background-color: yellow;
 `;
 
-const CloseButtonContainer = styled.SafeAreaView`
+const CloseButtonContainer = styled(SafeAreaView)`
 	background-color: tomato;
 	align-items: flex-end;
 	padding: 0px 8px 0px 8px;
