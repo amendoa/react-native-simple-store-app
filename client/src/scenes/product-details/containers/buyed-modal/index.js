@@ -20,25 +20,27 @@ import {
 const Container = styled.View`
 	flex: 1;
 	width: 100%;
-	padding: 0px 24px 24px 24px;
-	align-items: center;
 	justify-content: space-between;
-	background-color: ${constants.COLORS.DEFAULT};
+	${'' /* background-color: ${constants.COLORS.DEFAULT}; */}
+	background-color: red;
 `;
 
 const ActionsContainer = styled.SafeAreaView`
 	width: 100%;
-	margin: 0px 0px 16px 0px;
+	padding: 0px 24px 32px 24px;
+	background-color: green;
+	align-self: flex-end;
 `;
 
 const IconContainer = styled.SafeAreaView`
-	margin-top: 128px;
+	align-self: center;
+	background-color: yellow;
 `;
 
 const CloseButtonContainer = styled.SafeAreaView`
-	right: 0;
-	top: 0;
-	position: absolute;
+	background-color: tomato;
+	align-items: flex-end;
+	padding: 0px 8px 0px 8px;
 `;
 
 const BuyedModalContainer = (props) => {

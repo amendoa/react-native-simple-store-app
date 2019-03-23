@@ -7,8 +7,7 @@ import {
 	Navbar,
 	PullRefresh,
 	Button,
-	Label,
-	ConfirmAlert
+	Label
 } from 'src/shared/components';
 
 import {
@@ -44,7 +43,7 @@ const CheckoutButtonContainer = styled.View`
 	bottom: 0;
 	right: 0;
 	left: 0;
-	padding: 16px;
+	padding: 24px;
 	background-color: ${constants.COLORS.DEFAULT};
 `;
 

@@ -16,7 +16,7 @@ const Wrapper = styled.SafeAreaView`
 	flex-direction: row;
 	width: 100%;
 	height: 64;
-	padding: 8px;
+	padding: 8px 16px 8px 16px;
 	background-color: ${constants.COLORS.DEFAULT};
 `;
 
