@@ -22,24 +22,20 @@ const Container = styled(SafeAreaView)`
 	flex: 1;
 	width: 100%;
 	justify-content: space-between;
-	${'' /* background-color: ${constants.COLORS.DEFAULT}; */}
-	background-color: red;
+	background-color: ${constants.COLORS.DEFAULT};
 `;
 
 const ActionsContainer = styled(SafeAreaView)`
 	width: 100%;
-	padding: 0px 24px 16px 24px;
-	background-color: green;
+	padding: 24px;
 	align-self: flex-end;
 `;
 
 const IconContainer = styled(SafeAreaView)`
 	align-self: center;
-	background-color: yellow;
 `;
 
 const CloseButtonContainer = styled(SafeAreaView)`
-	background-color: tomato;
 	align-items: flex-end;
 	padding: 0px 8px 0px 8px;
 `;

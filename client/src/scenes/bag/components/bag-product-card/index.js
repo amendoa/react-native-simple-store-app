@@ -12,7 +12,6 @@ import {
 
 const Wrapper = styled.View`
 	margin-bottom: ${props => (props.isLastItem ? '32px' : '32px')};
-	margin-top: ${props => (props.isFirstItem ? '32px' : '0px')};
 	width: 100%;
 	height: 320px;
 `;

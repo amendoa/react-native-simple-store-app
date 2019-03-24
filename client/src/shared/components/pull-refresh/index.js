@@ -74,21 +74,25 @@ export default class PullRefreshComponent extends React.Component {
 			refreshAnimationHeight,
 			isRefreshing,
 			isFetching,
-			translationYDivider
+			translationYDivider,
+			pullRefreshIsEnabled
 		} = this.props;
 
 		const {
 			translationY
 		} = nativeEvent;
 
-		if (!gestureEnabled || translationY < 0) {
+		if (!gestureEnabled || translationY < 0 || !pullRefreshIsEnabled) {
 			return;
 		}
 
 		if (!isRefreshing && !isFetching) {
 			const newrefreshHeightValue = translationY * translationYDivider;
 
-			this.spinner.current.setPercentage((newrefreshHeightValue / refreshAnimationHeight) * 100);
+			if (pullRefreshIsEnabled) {
+				this.spinner.current.setPercentage((newrefreshHeightValue / refreshAnimationHeight) * 100);
+			}
+
 
 			refreshHeight.setValue(newrefreshHeightValue);
 		}
@@ -100,7 +104,8 @@ export default class PullRefreshComponent extends React.Component {
 			onRefresh,
 			isRefreshing,
 			translationYDivider,
-			isFetching
+			isFetching,
+			pullRefreshIsEnabled
 		} = this.props;
 
 		const {
@@ -116,7 +121,9 @@ export default class PullRefreshComponent extends React.Component {
 
 		if (endStates.includes(state)) {
 			if (!isRefreshing && !isFetching) {
-				this.spinner.current.setPercentage(0);
+				if (pullRefreshIsEnabled) {
+					this.spinner.current.setPercentage(0);
+				}
 
 				if ((translationY * translationYDivider) >= refreshAnimationHeight) {
 					this.setState({
@@ -214,7 +221,8 @@ export default class PullRefreshComponent extends React.Component {
 		const {
 			refreshAnimationHeight,
 			isRefreshing,
-			children
+			children,
+			pullRefreshIsEnabled
 		} = this.props;
 
 		const spinnerOpacity = refreshHeight.interpolate({
@@ -239,25 +247,29 @@ export default class PullRefreshComponent extends React.Component {
 
 		return (
 			<Wrapper>
-				<RefreshAnimationContainer
-					height={refreshAnimationHeight}
-				>
-					<SpinnerContainer
-						style={{
-							opacity: spinnerOpacity,
-							transform: [
-								{
-									translateY: spinnerTranslate
-								}
-							]
-						}}
-					>
-						<Spinner
-							ref={this.spinner}
-							isLoading={isRefreshing}
-						/>
-					</SpinnerContainer>
-				</RefreshAnimationContainer>
+				{
+					pullRefreshIsEnabled && (
+						<RefreshAnimationContainer
+							height={refreshAnimationHeight}
+						>
+							<SpinnerContainer
+								style={{
+									opacity: spinnerOpacity,
+									transform: [
+										{
+											translateY: spinnerTranslate
+										}
+									]
+								}}
+							>
+								<Spinner
+									ref={this.spinner}
+									isLoading={isRefreshing}
+								/>
+							</SpinnerContainer>
+						</RefreshAnimationContainer>
+					)
+				}
 				<Container
 					style={{
 						transform: [
@@ -301,6 +313,7 @@ PullRefreshComponent.defaultProps = {
 	scrollLimitToLoadMore: 300,
 	isRefreshing: false,
 	isFetching: false,
+	pullRefreshIsEnabled: true,
 	canLoadMore: true,
 	onRefresh: () => {},
 	onLoadMore: () => {}
@@ -312,6 +325,7 @@ PullRefreshComponent.propTypes = {
 	translationYDivider: PropTypes.number,
 	scrollLimitToLoadMore: PropTypes.number,
 	isRefreshing: PropTypes.bool,
+	pullRefreshIsEnabled: PropTypes.bool,
 	canLoadMore: PropTypes.bool,
 	isFetching: PropTypes.bool,
 	onRefresh: PropTypes.func,

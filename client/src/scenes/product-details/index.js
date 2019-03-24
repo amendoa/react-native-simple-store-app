@@ -61,7 +61,7 @@ const ActionsContainer = styled.View`
 	align-items: center;
 	background-color: ${constants.COLORS.PRIMARY};
 	width: 100%;
-	padding: 16px 40px 16px 16px;
+	padding: 16px 40px 24px 16px;
 `;
 
 const SelectContainer = styled.View`

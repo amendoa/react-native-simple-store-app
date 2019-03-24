@@ -43,14 +43,14 @@ const CheckoutButtonContainer = styled.View`
 	bottom: 0;
 	right: 0;
 	left: 0;
-	padding: 16px 24px 16px 24px;
+	padding: 24px;
 	background-color: ${constants.COLORS.DEFAULT};
 `;
 
 const TotalContainer = styled.View`
 	flex-direction: row;
 	align-items: center;
-	padding: 24px 24px 0px 24px;
+	padding: 24px;
 `;
 
 const result = [
@@ -107,6 +107,7 @@ const BagScene = props => (
 				onRefresh={() => {}}
 				onLoadMore={() => {}}
 				canLoadMore={false}
+				pullRefreshIsEnabled={false}
 			>
 				<BagItemsList
 					data={result}
@@ -131,7 +132,6 @@ const BagScene = props => (
 							>
 								<BagProductCard
 									isLastItem={index === (result.length - 1)}
-									isFirstItem={index === 0}
 								/>
 							</TranslateAndOpacityAnimation>
 						);
