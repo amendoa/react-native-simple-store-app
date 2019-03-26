@@ -17,8 +17,7 @@ describe('<Label />', () => {
 
 	const modelI = {
 		isVisible: true,
-		handleCloseModal: () => {},
-		navigation: {}
+		handleCloseModal: () => {}
 	};
 
 	it('renders correctly', () => {

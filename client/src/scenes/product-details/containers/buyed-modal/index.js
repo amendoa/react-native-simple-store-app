@@ -119,13 +119,16 @@ const BuyedModalContainer = (props) => {
 
 BuyedModalContainer.defaultProps = {
 	isVisible: false,
-	handleCloseModal: () => {}
+	handleCloseModal: () => {},
+	navigation: {
+		navigate: () => {}
+	}
 };
 
 BuyedModalContainer.propTypes = {
 	isVisible: PropTypes.bool,
 	handleCloseModal: PropTypes.func,
-	navigation: PropTypes.shape({}).isRequired
+	navigation: PropTypes.shape({})
 };
 
 export default withNavigation(BuyedModalContainer);

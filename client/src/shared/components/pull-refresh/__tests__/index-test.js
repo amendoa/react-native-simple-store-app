@@ -8,12 +8,6 @@ import {
 	PullRefresh
 } from 'src/shared/components';
 
-jest.mock('react-native-gesture-handler', () => ({
-	PanGestureHandler: 'View',
-	State: {},
-	ScrollView: 'View'
-}));
-
 describe('<PullRefresh />', () => {
 	const getWrapper = props => renderer.create(
 		<PullRefresh

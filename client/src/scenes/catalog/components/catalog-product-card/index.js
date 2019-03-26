@@ -76,14 +76,17 @@ class CatalogProductCardComponent extends Component {
 CatalogProductCardComponent.defaultProps = {
 	imageSource: '',
 	imageThumbnailSource: '',
-	price: ''
+	price: '',
+	navigation: {
+		navigate: () => {}
+	}
 };
 
 CatalogProductCardComponent.propTypes = {
 	imageSource: PropTypes.string,
 	imageThumbnailSource: PropTypes.string,
 	price: PropTypes.string,
-	navigation: PropTypes.shape({}).isRequired
+	navigation: PropTypes.shape({})
 };
 
 export default withNavigation(CatalogProductCardComponent);

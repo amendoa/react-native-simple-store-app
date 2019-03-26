@@ -23,7 +23,10 @@
 		"uuid": "^3.3.2"
 	},
 	"jest": {
-		"preset": "jest-expo"
+		"preset": "jest-expo",
+		"setupFiles": [
+			"./src/jest-setup.js"
+		]
 	},
 	"devDependencies": {
 		"babel-eslint": "^10.0.1",

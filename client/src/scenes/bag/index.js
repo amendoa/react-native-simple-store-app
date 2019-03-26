@@ -149,8 +149,14 @@ const BagScene = props => (
 	</Wrapper>
 );
 
+BagScene.defaultProps = {
+	navigation: {
+		navigate: () => {}
+	}
+};
+
 BagScene.propTypes = {
-	navigation: PropTypes.shape({}).isRequired
+	navigation: PropTypes.shape({})
 };
 
 export default BagScene;

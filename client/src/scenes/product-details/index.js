@@ -235,8 +235,14 @@ class ProductDetailsScene extends Component {
 	}
 }
 
+ProductDetailsScene.defaultProps = {
+	navigation: {
+		navigate: () => {}
+	}
+};
+
 ProductDetailsScene.propTypes = {
-	navigation: PropTypes.shape({}).isRequired
+	navigation: PropTypes.shape({})
 };
 
 export default ProductDetailsScene;

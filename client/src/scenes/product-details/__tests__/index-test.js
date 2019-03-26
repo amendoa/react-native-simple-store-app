@@ -12,13 +12,12 @@ import {
 } from 'src/scenes';
 
 describe('<ProductDetails />', () => {
+
 	const getWrapper = () => renderer.create(
 		<Provider
 			store={store}
 		>
-			<ProductDetails
-				navigation={{}}
-			/>
+			<ProductDetails />
 		</Provider>
 	).toJSON();
 

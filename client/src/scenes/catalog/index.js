@@ -185,10 +185,16 @@ class CatalogScene extends Component {
 	}
 }
 
+CatalogScene.defaultProps = {
+	navigation: {
+		navigate: () => {}
+	}
+};
+
 CatalogScene.propTypes = {
 	catalogData: PropTypes.shape({}).isRequired,
 	catalogDispatchActions: PropTypes.shape({}).isRequired,
-	navigation: PropTypes.shape({}).isRequired
+	navigation: PropTypes.shape({})
 };
 
 const mapStateToProps = state => ({

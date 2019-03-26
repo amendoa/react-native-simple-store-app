@@ -18,8 +18,7 @@ describe('<Label />', () => {
 	const modelI = {
 		imageSource: 'http://192.168.0.100:7070/images/product1.jpg',
 		imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product1.jpg',
-		price: '40,99$',
-		navigation: {}
+		price: '40,99$'
 	};
 
 	it('renders correctly', () => {

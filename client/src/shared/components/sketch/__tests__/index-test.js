@@ -7,7 +7,6 @@ import {
 } from 'src/shared/components';
 
 jest.useFakeTimers();
-Date.now = jest.fn(() => 1503187200000);
 
 describe('<Sketch />', () => {
 	const getWrapper = props => renderer.create(
@@ -20,7 +19,7 @@ describe('<Sketch />', () => {
 
 	const modelI = {
 		width: 100,
-		heigth: 100
+		height: 100
 	};
 
 	it('renders correctly', () => {

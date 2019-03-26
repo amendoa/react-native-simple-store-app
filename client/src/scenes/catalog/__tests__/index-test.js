@@ -11,20 +11,12 @@ import {
 	Catalog
 } from 'src/scenes';
 
-jest.mock('react-native-gesture-handler', () => ({
-	PanGestureHandler: 'View',
-	State: {},
-	ScrollView: 'View'
-}));
-
 describe('<Catalog />', () => {
 	const getWrapper = () => renderer.create(
 		<Provider
 			store={store}
 		>
-			<Catalog
-				navigation={{}}
-			/>
+			<Catalog />
 		</Provider>
 	).toJSON();
 
