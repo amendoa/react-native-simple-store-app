@@ -1,5 +1,4 @@
-import Animated from 'react-native';
-
+import * as RN from 'react-native';
 
 jest.mock('react-native-gesture-handler', () => ({
 	PanGestureHandler: 'View',
@@ -12,10 +11,9 @@ jest.mock('react-navigation', () => ({
 	SafeAreaView: 'View'
 }));
 
-// Animated.loop = () => ({
-// 	start: () => {}
-// });
-
-jest.mock('Animated', Animated);
+RN.Animated.loop = () => ({
+	start: () => jest.fn(),
+	reset: () => jest.fn()
+});
 
 console.warn = () => {};
