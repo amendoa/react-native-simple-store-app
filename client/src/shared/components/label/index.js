@@ -7,12 +7,17 @@ const getColor = (props) => {
 	const {
 		dark: isDarkLabel,
 		default: isDefaultLabel,
-		primary: isPrimaryLabel
+		primary: isPrimaryLabel,
+		gray: isGrayLabel
 	} = props;
 
 	const {
 		COLORS
 	} = constants;
+
+	if (isGrayLabel) {
+		return COLORS.DARK_GRAY;
+	}
 
 	if (isPrimaryLabel) {
 		return COLORS.PRIMARY;
@@ -33,8 +38,6 @@ const Label = styled.Text`
 	font-family: quicksand-bold;
 	font-size: ${props => props.fontSize};
 	text-align-vertical: center;
-	text-align: center;
-	align-self: center;
 	color: ${props => getColor(props)};
 	margin: ${props => props.margin}
 `;

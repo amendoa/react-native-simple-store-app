@@ -6,6 +6,10 @@ import BagIcon from 'src/shared/components/icon/icons/bag';
 import InfoIcon from 'src/shared/components/icon/icons/info';
 import SpinnerIcon from 'src/shared/components/icon/icons/spinner';
 import BagCheckIcon from 'src/shared/components/icon/icons/bag-check';
+import RadioCheckedIcon from 'src/shared/components/icon/icons/radio-checked';
+import RadioIcon from 'src/shared/components/icon/icons/radio';
+import VisaCardIcon from 'src/shared/components/icon/icons/visa-card';
+import MasterCardIcon from 'src/shared/components/icon/icons/master-card';
 
 export {
 	ArrowLeftIcon,
@@ -15,5 +19,9 @@ export {
 	BagIcon,
 	InfoIcon,
 	SpinnerIcon,
-	BagCheckIcon
+	BagCheckIcon,
+	RadioCheckedIcon,
+	RadioIcon,
+	VisaCardIcon,
+	MasterCardIcon
 };

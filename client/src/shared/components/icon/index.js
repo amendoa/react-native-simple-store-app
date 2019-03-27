@@ -11,7 +11,11 @@ import {
 	BagIcon,
 	InfoIcon,
 	SpinnerIcon,
-	BagCheckIcon
+	BagCheckIcon,
+	RadioCheckedIcon,
+	RadioIcon,
+	VisaCardIcon,
+	MasterCardIcon
 } from 'src/shared/components/icon/icons';
 
 const getIconColor = (props) => {
@@ -138,6 +142,44 @@ const renderIcon = (props) => {
 		case 'bag-check':
 			return (
 				<BagCheckIcon
+					{
+					...props
+					}
+				/>
+			);
+
+		case 'radio-checked':
+			return (
+				<RadioCheckedIcon
+					{
+					...props
+					}
+					color={getIconColor(props)}
+				/>
+			);
+
+		case 'radio':
+			return (
+				<RadioIcon
+					{
+					...props
+					}
+					color={getIconColor(props)}
+				/>
+			);
+
+		case 'visa-card':
+			return (
+				<VisaCardIcon
+					{
+					...props
+					}
+				/>
+			);
+
+		case 'master-card':
+			return (
+				<MasterCardIcon
 					{
 					...props
 					}

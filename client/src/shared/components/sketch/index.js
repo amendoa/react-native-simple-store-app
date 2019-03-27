@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 const Sketch = styled(Animated.View)`
-	background-color: ${constants.COLORS.DARK_GRAY};
+	background-color: ${constants.COLORS.MEDIUM_GRAY};
 	width: ${props => props.width};
 	height: ${props => props.height};
 `;

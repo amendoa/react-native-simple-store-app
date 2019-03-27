@@ -10,6 +10,7 @@ import Sketch from 'src/shared/components/sketch';
 import InputNumber from 'src/shared/components/input-number';
 import SelectColor from 'src/shared/components/select-color';
 import ConfirmAlert from 'src/shared/components/confirm-alert';
+import RadioGroup from 'src/shared/components/radio-group';
 
 export {
 	Button,
@@ -23,5 +24,6 @@ export {
 	Sketch,
 	InputNumber,
 	SelectColor,
-	ConfirmAlert
+	ConfirmAlert,
+	RadioGroup
 };

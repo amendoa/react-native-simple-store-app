@@ -5,7 +5,8 @@
 		"DEFAULT": "#ffffff",
 		"DARK": "#000000",
 		"GRAY": "#f0f0f0",
-		"DARK_GRAY": "#e4e2e2"
+		"MEDIUM_GRAY": "#e4e2e2",
+		"DARK_GRAY": "#807f7f"
 	},
 	"FONT_SIZE": {
 		"SMALL": 8,
