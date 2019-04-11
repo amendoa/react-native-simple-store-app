@@ -70,12 +70,24 @@ class PayModalContainer extends Component {
 				})
 			])
 		).start();
+	}
 
-		setTimeout(() => {
-			this.setState({
-				isLoading: false
-			});
-		}, 9000);
+	componentDidUpdate () {
+		const {
+			isVisible
+		} = this.props;
+
+		const {
+			isLoading
+		} = this.state;
+
+		if (isVisible && isLoading) {
+			setTimeout(() => {
+				this.setState({
+					isLoading: false
+				});
+			}, 6000);
+		}
 	}
 
 	render () {
@@ -137,7 +149,7 @@ class PayModalContainer extends Component {
 								/>
 								<Label
 									dark
-									text="payment successful"
+									text="successful payment!"
 									fontSize={24}
 									margin="16px 0px 0px 0px"
 								/>
@@ -156,6 +168,9 @@ class PayModalContainer extends Component {
 										const {
 											navigation
 										} = this.props;
+										this.setState({
+											isLoading: true
+										});
 										handleCloseModal();
 										navigation.navigate('catalog');
 									}}

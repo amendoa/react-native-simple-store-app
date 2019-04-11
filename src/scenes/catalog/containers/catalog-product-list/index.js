@@ -120,9 +120,7 @@ export default class CatalogProductListContainer extends PureComponent {
 									isFirstItem={index === 0}
 								>
 									<CatalogProductCard
-										imageSource={item.imageSource}
-										imageThumbnailSource={item.imageThumbnailSource}
-										price={item.price}
+										model={item}
 									/>
 								</Item>
 							</TranslateAndOpacityAnimation>

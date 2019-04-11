@@ -83,10 +83,10 @@ class ProductDetailsScene extends Component {
 		};
 	}
 
-	renderItem = () => (
+	renderItem = item => (
 		<Image
-			source="http://192.168.0.100:7070/images/product1.jpg"
-			thumbnailSource="http://192.168.0.100:7070/thumbs/product1.jpg"
+			source={item.item.imageSource}
+			thumbnailSource={item.item.imageThumbnailSource}
 			width="100%"
 			height="100%"
 		/>
@@ -107,6 +107,17 @@ class ProductDetailsScene extends Component {
 			isVisible
 		} = this.state;
 
+		const {
+			navigation
+		} = this.props;
+
+		const currentProduct = navigation.getParam('product', {});
+
+		const {
+			images,
+			price
+		} = currentProduct;
+
 		const caroulselWidth = Dimensions.get('window').width - 48;
 
 		return (
@@ -121,10 +132,6 @@ class ProductDetailsScene extends Component {
 							dark: true
 						},
 						onPress: () => {
-							const {
-								navigation
-							} = this.props;
-
 							navigation.navigate('catalog');
 						}
 					}}
@@ -141,7 +148,7 @@ class ProductDetailsScene extends Component {
 					<ImageContainer>
 						<Carousel
 							ref={this.carousel}
-							data={[1, 2, 3, 4]}
+							data={images}
 							renderItem={this.renderItem}
 							sliderWidth={caroulselWidth}
 							itemWidth={caroulselWidth}
@@ -152,7 +159,7 @@ class ProductDetailsScene extends Component {
 								primary
 								label={{
 									default: true,
-									text: '59,50$'
+									text: price
 								}}
 							/>
 							<DirectionsContainer>

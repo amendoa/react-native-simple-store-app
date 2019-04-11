@@ -55,17 +55,35 @@ const TotalContainer = styled.View`
 
 const result = [
 	{
-		key: '1'
+		imageSource: 'http://192.168.0.101:7070/images/product1/image1.jpg',
+		imageThumbnailSource: 'http://192.168.0.101:7070/thumbs/product1/image1.jpg',
+		price: '40,99$',
+		key: '328298dd-e251-4e2e-9356-ed031ae5955f'
 	},
 	{
-		key: '2'
+		imageSource: 'http://192.168.0.101:7070/images/product2/image1.jpg',
+		imageThumbnailSource: 'http://192.168.0.101:7070/thumbs/product2/image1.jpg',
+		price: '50,99$',
+		key: '25a77ec7-e070-4ec4-8ff6-6d2de63893ab'
 	},
 	{
-		key: '3'
+		imageSource: 'http://192.168.0.101:7070/images/product3/image1.jpg',
+		imageThumbnailSource: 'http://192.168.0.101:7070/thumbs/product3/image1.jpg',
+		price: '70,99$',
+		key: 'e7d7022b-8948-4402-b2d9-5a0e5ca2b832'
 	},
 	{
-		key: '4'
+		imageSource: 'http://192.168.0.101:7070/images/product4/image1.jpg',
+		imageThumbnailSource: 'http://192.168.0.101:7070/thumbs/product4/image1.jpg',
+		price: '40,99$',
+		key: '328298dd-e251-4e2e-9356-ed031ae5954f'
 	},
+	{
+		imageSource: 'http://192.168.0.101:7070/images/product5/image1.jpg',
+		imageThumbnailSource: 'http://192.168.0.101:7070/thumbs/product5/image1.jpg',
+		price: '50,99$',
+		key: '25a77ec7-e070-4ec4-8ff6-6d2de53893ab'
+	}
 ];
 
 const BagScene = props => (
@@ -114,7 +132,8 @@ const BagScene = props => (
 					scrollEnabled={false}
 					renderItem={(data) => {
 						const {
-							index
+							index,
+							item
 						} = data;
 
 						return (
@@ -126,6 +145,7 @@ const BagScene = props => (
 							>
 								<BagProductCard
 									isLastItem={index === (result.length - 1)}
+									model={item}
 								/>
 							</TranslateAndOpacityAnimation>
 						);

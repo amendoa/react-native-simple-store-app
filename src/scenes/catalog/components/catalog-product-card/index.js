@@ -31,18 +31,25 @@ const ImageContainer = styled.View`
 class CatalogProductCardComponent extends Component {
 	handlePressProduct = () => {
 		const {
-			navigation
+			navigation,
+			model
 		} = this.props;
 
-		navigation.navigate('productDetails');
+		navigation.navigate('productDetails', {
+			product: model
+		});
 	}
 
 	render () {
 		const {
+			model
+		} = this.props;
+
+		const {
 			imageSource,
 			imageThumbnailSource,
 			price
-		} = this.props;
+		} = model;
 
 		return (
 			<Button
@@ -74,19 +81,19 @@ class CatalogProductCardComponent extends Component {
 }
 
 CatalogProductCardComponent.defaultProps = {
-	imageSource: '',
-	imageThumbnailSource: '',
-	price: '',
 	navigation: {
 		navigate: () => {}
-	}
+	},
+	model: {}
 };
 
 CatalogProductCardComponent.propTypes = {
-	imageSource: PropTypes.string,
-	imageThumbnailSource: PropTypes.string,
-	price: PropTypes.string,
-	navigation: PropTypes.shape({})
+	navigation: PropTypes.shape({}),
+	model: PropTypes.shape({
+		imageSource: PropTypes.string,
+		imageThumbnailSource: PropTypes.string,
+		price: PropTypes.string,
+	})
 };
 
 export default withNavigation(CatalogProductCardComponent);

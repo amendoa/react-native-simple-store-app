@@ -30,6 +30,7 @@ const Container = styled.View`
 	height: 200px;
 	padding: 16px;
 	justify-content: flex-end;
+	align-items: center;
 `;
 
 const ActionsContainer = styled.View`

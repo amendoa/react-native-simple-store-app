@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
+import PropTypes from 'prop-types';
 
 import {
 	Image,
@@ -39,8 +40,17 @@ const CloseButtonContainer = styled.View`
 	position: absolute;
 `;
 
-export default (props) => {
+const BagProductCard = (props) => {
 	const confirmRemoveItemAlert = React.createRef();
+	const {
+		model
+	} = props;
+
+	const {
+		imageSource,
+		imageThumbnailSource,
+		price
+	} = model;
 
 	return (
 		<Wrapper
@@ -50,13 +60,11 @@ export default (props) => {
 		>
 			<ConfirmAlert
 				ref={confirmRemoveItemAlert}
-				handleConfirm={() => {
-					console.log('confirm alert');
-				}}
+				handleConfirm={() => {}}
 			/>
 			<Image
-				source="http://192.168.0.100:7070/images/product1.jpg"
-				thumbnailSource="http://192.168.0.100:7070/thumbs/product1.jpg"
+				source={imageSource}
+				thumbnailSource={imageThumbnailSource}
 				width="100%"
 				height="100%"
 			/>
@@ -99,7 +107,7 @@ export default (props) => {
 						default
 						label={{
 							dark: true,
-							text: '59,50$'
+							text: price
 						}}
 					/>
 				</Item>
@@ -113,3 +121,17 @@ export default (props) => {
 		</Wrapper>
 	);
 };
+
+BagProductCard.defaultProps = {
+	model: {}
+};
+
+BagProductCard.propTypes = {
+	model: PropTypes.shape({
+		imageSource: PropTypes.string,
+		imageThumbnailSource: PropTypes.string,
+		price: PropTypes.string,
+	})
+};
+
+export default BagProductCard;
