@@ -19,7 +19,6 @@ const Wrapper = styled.SafeAreaView`
 	background-color: ${constants.COLORS.DEFAULT};
 `;
 
-
 const Content = styled.View`
 	flex: 1;
 	background-color: ${constants.COLORS.DEFAULT};

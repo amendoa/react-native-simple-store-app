@@ -114,14 +114,8 @@ const BagScene = props => (
 					scrollEnabled={false}
 					renderItem={(data) => {
 						const {
-							item,
 							index
 						} = data;
-
-						const {
-							title,
-							products
-						} = item;
 
 						return (
 							<TranslateAndOpacityAnimation
