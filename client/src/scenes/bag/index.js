@@ -143,6 +143,13 @@ const BagScene = props => (
 					primary
 					text="check out"
 					height="48"
+					onPress={() => {
+						const {
+							navigation
+						} = props;
+
+						navigation.navigate('payment');
+					}}
 				/>
 			</CheckoutButtonContainer>
 		</Container>

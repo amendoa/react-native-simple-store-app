@@ -15,7 +15,9 @@ import {
 	RadioCheckedIcon,
 	RadioIcon,
 	VisaCardIcon,
-	MasterCardIcon
+	MasterCardIcon,
+	PocketIcon,
+	CheckIcon
 } from 'src/shared/components/icon/icons';
 
 const getIconColor = (props) => {
@@ -119,6 +121,15 @@ const renderIcon = (props) => {
 				/>
 			);
 
+		case 'pocket':
+			return (
+				<PocketIcon
+					{
+					...props
+					}
+				/>
+			);
+
 		case 'info':
 			return (
 				<InfoIcon
@@ -180,6 +191,15 @@ const renderIcon = (props) => {
 		case 'master-card':
 			return (
 				<MasterCardIcon
+					{
+					...props
+					}
+				/>
+			);
+
+		case 'check':
+			return (
+				<CheckIcon
 					{
 					...props
 					}
