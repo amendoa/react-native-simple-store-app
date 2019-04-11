@@ -73,7 +73,7 @@ class PaymentScene extends Component {
 		return (
 			<Wrapper>
 				<Navbar
-					title="Payment"
+					title="payment"
 					leftIcon={{
 						icon: {
 							icon: 'arrow-left',
@@ -101,7 +101,7 @@ class PaymentScene extends Component {
 				<Container>
 					<Label
 						dark
-						text="Payment method"
+						text="payment method"
 						fontSize={18}
 						margin="0px 0px 16px 0px"
 					/>
@@ -118,7 +118,7 @@ class PaymentScene extends Component {
 										<PaymentItemDescContainer>
 											<Label
 												gray
-												text="MasterCard"
+												text="mastercard"
 												fontSize={18}
 											/>
 											<Label
@@ -143,7 +143,7 @@ class PaymentScene extends Component {
 										<PaymentItemDescContainer>
 											<Label
 												gray
-												text="Visa"
+												text="visa"
 												fontSize={18}
 											/>
 											<Label
@@ -161,7 +161,7 @@ class PaymentScene extends Component {
 					/>
 					<Label
 						dark
-						text="Shipping address"
+						text="shipping address"
 						fontSize={18}
 						margin="24px 0px 16px 0px"
 					/>
@@ -173,12 +173,12 @@ class PaymentScene extends Component {
 										<ItemDescContainer>
 											<Label
 												gray
-												text="991  Franklin Street"
+												text="991 franklin street"
 												fontSize={18}
 											/>
 											<Label
 												gray
-												text="Montgomery, AL 36116"
+												text="montgomery, AL 36116"
 												fontSize={16}
 											/>
 										</ItemDescContainer>
@@ -192,12 +192,12 @@ class PaymentScene extends Component {
 										<ItemDescContainer>
 											<Label
 												gray
-												text="2828  Ward Road"
+												text="2828 ward road"
 												fontSize={18}
 											/>
 											<Label
 												gray
-												text="Port Chester, NY 10573"
+												text="port chester, NY 10573"
 												fontSize={16}
 											/>
 										</ItemDescContainer>
@@ -215,7 +215,7 @@ class PaymentScene extends Component {
 						<OrderInfoItem>
 							<Label
 								dark
-								text="Order"
+								text="order"
 								fontSize={16}
 							/>
 							<Label
@@ -227,7 +227,7 @@ class PaymentScene extends Component {
 						<OrderInfoItem>
 							<Label
 								dark
-								text="Delivery"
+								text="delivery"
 								fontSize={16}
 							/>
 							<Label
@@ -239,7 +239,7 @@ class PaymentScene extends Component {
 						<OrderInfoItem>
 							<Label
 								dark
-								text="Summary"
+								text="summary"
 								fontSize={16}
 							/>
 							<Label

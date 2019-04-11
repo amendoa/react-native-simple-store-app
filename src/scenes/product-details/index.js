@@ -123,7 +123,7 @@ class ProductDetailsScene extends Component {
 		return (
 			<Wrapper>
 				<Navbar
-					title="Details"
+					title="details"
 					leftIcon={{
 						icon: {
 							icon: 'arrow-left',

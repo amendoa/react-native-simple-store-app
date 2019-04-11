@@ -12,6 +12,7 @@ import RadioIcon from 'src/shared/components/icon/icons/radio';
 import VisaCardIcon from 'src/shared/components/icon/icons/visa-card';
 import MasterCardIcon from 'src/shared/components/icon/icons/master-card';
 import CheckIcon from 'src/shared/components/icon/icons/check';
+import LoadingBagIcon from 'src/shared/components/icon/icons/loading-bag';
 
 export {
 	ArrowLeftIcon,
@@ -27,5 +28,6 @@ export {
 	VisaCardIcon,
 	MasterCardIcon,
 	PocketIcon,
-	CheckIcon
+	CheckIcon,
+	LoadingBagIcon
 };

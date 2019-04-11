@@ -89,7 +89,7 @@ const result = [
 const BagScene = props => (
 	<Wrapper>
 		<Navbar
-			title="Bag"
+			title="bag"
 			leftIcon={{
 				icon: {
 					icon: 'arrow-left',
@@ -109,7 +109,7 @@ const BagScene = props => (
 		<Container>
 			<TotalContainer>
 				<Label
-					text="Total: "
+					text="total: "
 					dark
 					fontSize={18}
 				/>

@@ -107,7 +107,7 @@ class CatalogScene extends Component {
 		return (
 			<Wrapper>
 				<Navbar
-					title="Catalog"
+					title="catalog"
 					rightIcons={[
 						{
 							icon: {

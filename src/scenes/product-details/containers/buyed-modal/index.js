@@ -33,6 +33,8 @@ const ActionsContainer = styled(SafeAreaView)`
 
 const IconContainer = styled(SafeAreaView)`
 	align-self: center;
+	align-items: center;
+	justify-content: center;
 `;
 
 const CloseButtonContainer = styled(SafeAreaView)`

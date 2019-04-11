@@ -17,7 +17,8 @@ import {
 	VisaCardIcon,
 	MasterCardIcon,
 	PocketIcon,
-	CheckIcon
+	CheckIcon,
+	LoadingBagIcon
 } from 'src/shared/components/icon/icons';
 
 const getIconColor = (props) => {
@@ -200,6 +201,15 @@ const renderIcon = (props) => {
 		case 'check':
 			return (
 				<CheckIcon
+					{
+					...props
+					}
+				/>
+			);
+
+		case 'loading-bag':
+			return (
+				<LoadingBagIcon
 					{
 					...props
 					}

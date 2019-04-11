@@ -33,25 +33,25 @@ const Item = styled.View`
 
 const items = [
 	{
-		title: 'Photos by',
+		title: 'photos by',
 		desc: 'icons8 photos',
 		link: 'https://photos.icons8.com/',
 		key: 1
 	},
 	{
-		title: 'Icons by',
+		title: 'icons by',
 		desc: 'evericons',
 		link: 'http://www.evericons.com/?ref=evernote.design',
 		key: 2
 	},
 	{
-		title: 'Design by',
+		title: 'design by',
 		desc: 'matheus almeida',
 		link: 'https://github.com/almeida-matheus',
 		key: 3
 	},
 	{
-		title: 'Code by',
+		title: 'code by',
 		desc: 'matheus almeida',
 		link: 'https://github.com/almeida-matheus',
 		key: 4
@@ -61,7 +61,7 @@ const items = [
 const AboutScene = props => (
 	<Wrapper>
 		<Navbar
-			title="About"
+			title="about"
 			leftIcon={{
 				icon: {
 					icon: 'arrow-left',

@@ -16,7 +16,7 @@
 		"ROOT": "http://www.mocky.io/v2/",
 		"MOCKY_DELAY": "1000ms",
 		"ACTIONS": {
-			"CATALOG": "5caf6c603400009b3dab7333"
+			"CATALOG": "5caf736d3400009324ab7364"
 		},
 		"METHODS": {
 			"POST": "POST",

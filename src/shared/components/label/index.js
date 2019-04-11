@@ -39,7 +39,7 @@ const Label = styled.Text`
 	font-size: ${props => props.fontSize};
 	text-align-vertical: center;
 	color: ${props => getColor(props)};
-	margin: ${props => props.margin}
+	margin: ${props => props.margin};
 `;
 
 const LabelComponent = (props) => {
