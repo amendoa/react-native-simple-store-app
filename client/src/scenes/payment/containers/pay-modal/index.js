@@ -153,7 +153,11 @@ class PayModalContainer extends Component {
 									height="48"
 									text="keep buying"
 									onPress={() => {
+										const {
+											navigation
+										} = this.props;
 										handleCloseModal();
+										navigation.navigate('catalog');
 									}}
 									buttonMargin="0px 0px 16px 0px"
 								/>

@@ -2,7 +2,8 @@ import {
 	Catalog,
 	ProductDetails,
 	Bag,
-	Payment
+	Payment,
+	About
 } from 'src/scenes';
 
 import {
@@ -128,9 +129,15 @@ const AppNavigator = createStackNavigator({
 			header: null
 		})
 	},
+	about: {
+		screen: About,
+		navigationOptions: () => ({
+			header: null
+		})
+	},
 }, {
 	transitionConfig: TransitionConfiguration,
-	initialRouteName: 'payment'
+	initialRouteName: 'catalog'
 });
 
 export default createAppContainer(AppNavigator);

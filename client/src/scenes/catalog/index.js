@@ -76,6 +76,14 @@ class CatalogScene extends Component {
 		});
 	}
 
+	handleAboutIconPress = () => {
+		const {
+			navigation
+		} = this.props;
+
+		navigation.navigate('about');
+	}
+
 	handleBagIconPress = () => {
 		const {
 			navigation
@@ -108,8 +116,7 @@ class CatalogScene extends Component {
 								height: '24',
 								dark: true
 							},
-							onPress: () => {
-							}
+							onPress: this.handleAboutIconPress
 						},
 						{
 							icon: {
