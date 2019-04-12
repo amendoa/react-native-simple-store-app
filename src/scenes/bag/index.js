@@ -55,32 +55,32 @@ const TotalContainer = styled.View`
 
 const result = [
 	{
-		imageSource: 'http://192.168.0.100:7070/images/product1/image1.jpg',
-		imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product1/image1.jpg',
+		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product1/image1.jpg',
+		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product1/image1.jpg',
 		price: '40,99$',
 		key: '328298dd-e251-4e2e-9356-ed031ae5955f'
 	},
 	{
-		imageSource: 'http://192.168.0.100:7070/images/product2/image1.jpg',
-		imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product2/image1.jpg',
+		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product2/image1.jpg',
+		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product2/image1.jpg',
 		price: '50,99$',
 		key: '25a77ec7-e070-4ec4-8ff6-6d2de63893ab'
 	},
 	{
-		imageSource: 'http://192.168.0.100:7070/images/product3/image1.jpg',
-		imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product3/image1.jpg',
+		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product3/image1.jpg',
+		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product3/image1.jpg',
 		price: '70,99$',
 		key: 'e7d7022b-8948-4402-b2d9-5a0e5ca2b832'
 	},
 	{
-		imageSource: 'http://192.168.0.100:7070/images/product4/image1.jpg',
-		imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product4/image1.jpg',
+		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product4/image1.jpg',
+		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product4/image1.jpg',
 		price: '40,99$',
 		key: '328298dd-e251-4e2e-9356-ed031ae5954f'
 	},
 	{
-		imageSource: 'http://192.168.0.100:7070/images/product5/image1.jpg',
-		imageThumbnailSource: 'http://192.168.0.100:7070/thumbs/product5/image1.jpg',
+		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product5/image1.jpg',
+		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product5/image1.jpg',
 		price: '50,99$',
 		key: '25a77ec7-e070-4ec4-8ff6-6d2de53893ab'
 	}

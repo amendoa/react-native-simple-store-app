@@ -12,12 +12,19 @@ import {
 } from 'src/scenes';
 
 describe('<ProductDetails />', () => {
-
 	const getWrapper = () => renderer.create(
 		<Provider
 			store={store}
 		>
-			<ProductDetails />
+			<ProductDetails
+				navigation={{
+					navigate: () => {},
+					getParam: () => ({
+						images: [],
+						price: ''
+					})
+				}}
+			/>
 		</Provider>
 	).toJSON();
 
