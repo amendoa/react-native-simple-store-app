@@ -33,28 +33,34 @@ const Item = styled.View`
 
 const items = [
 	{
-		title: 'photos by',
-		desc: 'icons8 photos',
-		link: 'https://photos.icons8.com/',
-		key: 1
-	},
-	{
-		title: 'icons by',
-		desc: 'evericons',
-		link: 'http://www.evericons.com/?ref=evernote.design',
-		key: 2
-	},
-	{
 		title: 'design by',
 		desc: 'matheus almeida',
 		link: 'https://github.com/almeida-matheus',
-		key: 3
+		key: 1
 	},
 	{
 		title: 'code by',
 		desc: 'matheus almeida',
 		link: 'https://github.com/almeida-matheus',
+		key: 2
+	},
+	{
+		title: 'photos by',
+		desc: 'icons8 photos',
+		link: 'https://photos.icons8.com/',
+		key: 3
+	},
+	{
+		title: 'icons by',
+		desc: 'evericons',
+		link: 'http://www.evericons.com/?ref=evernote.design',
 		key: 4
+	},
+	{
+		title: 'icons by',
+		desc: 'flaticon',
+		link: 'https://www.flaticon.com',
+		key: 5
 	}
 ];
 

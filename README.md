@@ -1,29 +1,35 @@
-# README #
+# Simple store
+A simple clothing store app, written in react-native
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### Demo
+![DemoI](demoI.gif)
+![DemoII](demoII.gif)
+![DemoIII](demoIII.gif)
 
-### What is this repository for? ###
+#### Relevant Libs/Frameworks that i'm using
+  - react-native
+  - redux
+  - redux-saga
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+# Commands
+Run tests
+```sh
+$ yarn test
+```
 
-### How do I get set up? ###
+Run dev server
+```sh
+$ yarn install
+$ yarn start
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### Configuration
+Set your configurations here
 
-### Contribution guidelines ###
+```sh
+src/configs/(dev/prod).json
+```
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+### Files
+[simplestore.xd](https)
+[simplestore.apk](https)
