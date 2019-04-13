@@ -86,7 +86,7 @@ class PaymentScene extends Component {
 								navigation
 							} = this.props;
 
-							navigation.navigate('bag');
+							navigation.goBack();
 						}
 					}}
 				/>
@@ -267,7 +267,8 @@ class PaymentScene extends Component {
 
 PaymentScene.defaultProps = {
 	navigation: {
-		navigate: () => {}
+		navigate: () => {},
+		goBack: () => {}
 	}
 };
 

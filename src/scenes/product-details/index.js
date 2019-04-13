@@ -132,7 +132,7 @@ class ProductDetailsScene extends Component {
 							dark: true
 						},
 						onPress: () => {
-							navigation.navigate('catalog');
+							navigation.goBack();
 						}
 					}}
 				/>
@@ -244,7 +244,8 @@ class ProductDetailsScene extends Component {
 
 ProductDetailsScene.defaultProps = {
 	navigation: {
-		navigate: () => {}
+		navigate: () => {},
+		goBack: () => {}
 	}
 };
 

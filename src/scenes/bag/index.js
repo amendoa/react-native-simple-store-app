@@ -102,7 +102,7 @@ const BagScene = props => (
 						navigation
 					} = props;
 
-					navigation.navigate('catalog');
+					navigation.goBack();
 				}
 			}}
 		/>
@@ -172,7 +172,8 @@ const BagScene = props => (
 
 BagScene.defaultProps = {
 	navigation: {
-		navigate: () => {}
+		navigate: () => {},
+		goBack: () => {}
 	}
 };
 

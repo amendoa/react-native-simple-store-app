@@ -102,7 +102,7 @@ export default class ConfirmAlertComponent extends Component {
 							/>
 						</CloseButtonContainer>
 						<Label
-							text="Are you sure?"
+							text="are you sure?"
 							dark
 							margin="0px 0px 48px 0px"
 							fontSize={24}

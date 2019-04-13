@@ -80,7 +80,7 @@ const AboutScene = props => (
 						navigation
 					} = props;
 
-					navigation.navigate('catalog');
+					navigation.goBack();
 				}
 			}}
 		/>
@@ -118,7 +118,8 @@ const AboutScene = props => (
 
 AboutScene.defaultProps = {
 	navigation: {
-		navigate: () => {}
+		navigate: () => {},
+		goBack: () => {}
 	}
 };
 
