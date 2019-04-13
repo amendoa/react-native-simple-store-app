@@ -33,4 +33,4 @@ src/configs/(dev/prod).json
 
 ### Files
 [simplestore.xd](https://github.com/almeida-matheus/react-native-simple-store-app/blob/develop/art/simplestore.xd?raw=true)
-[simplestore.apk](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40almeida-matheus/simplestore-6e732088d64a41a4bb40ee8f626f5eea-signed.apk)
+[simplestore.apk](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40almeida-matheus/simplestore-c195e94cdfdf45b587aac4a6db3faad1-signed.apk)
