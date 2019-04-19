@@ -130,6 +130,7 @@ class CatalogScene extends Component {
 						}
 					]}
 				/>
+
 				<PullRefresh
 					isRefreshing={isRefreshing}
 					isFetching={isFetching}

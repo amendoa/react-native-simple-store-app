@@ -22,9 +22,6 @@ const Wrapper = styled.View`
 const TagContainer = styled.View`
 	position: absolute;
 	bottom: 0;
-`;
-
-const ImageContainer = styled.View`
 	margin: 0px 0px 16px 16px;
 `;
 
@@ -57,14 +54,12 @@ class CatalogProductCardComponent extends Component {
 				buttonPadding="0px 0px 0px 0px"
 			>
 				<Wrapper>
-					<ImageContainer>
-						<Image
-							source={imageSource}
-							thumbnailSource={imageThumbnailSource}
-							width={180}
-							height={180}
-						/>
-					</ImageContainer>
+					<Image
+						source={imageSource}
+						thumbnailSource={imageThumbnailSource}
+						width={200}
+						height={200}
+					/>
 					<TagContainer>
 						<Tag
 							primary

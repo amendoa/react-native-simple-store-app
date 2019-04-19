@@ -69,20 +69,20 @@ export default class CatalogProductListContainer extends PureComponent {
 							isFirstItem
 						>
 							<Sketch
-								height={180}
-								width={180}
+								height={200}
+								width={200}
 							/>
 						</Item>
 						<Item>
 							<Sketch
-								height={180}
-								width={180}
+								height={200}
+								width={200}
 							/>
 						</Item>
 						<Item>
 							<Sketch
-								height={180}
-								width={180}
+								height={200}
+								width={200}
 							/>
 						</Item>
 					</ScrollView>
