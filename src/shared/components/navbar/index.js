@@ -71,6 +71,7 @@ const NavbarComponent = (props) => {
 							text={title}
 							dark
 							fontSize={24}
+							bold
 						/>
 					)
 				}

@@ -34,8 +34,25 @@ const getColor = (props) => {
 	return 'transparent';
 };
 
+const getFont = (props) => {
+	const {
+		bold: isBoldFont,
+		medium: isMediumFont
+	} = props;
+
+	if (isBoldFont) {
+		return 'quicksand-bold';
+	}
+
+	if (isMediumFont) {
+		return 'quicksand-medium';
+	}
+
+	return 'quicksand-medium';
+};
+
 const Label = styled.Text`
-	font-family: quicksand-bold;
+	font-family: ${props => getFont(props)};
 	font-size: ${props => props.fontSize};
 	text-align-vertical: center;
 	color: ${props => getColor(props)};
@@ -63,7 +80,9 @@ const LabelComponent = (props) => {
 LabelComponent.defaultProps = {
 	text: 'text',
 	fontSize: 1,
-	margin: '0px 0px 5px 0px'
+	margin: '0px 0px 5px 0px',
+	bold: false,
+	medium: true
 };
 
 LabelComponent.propTypes = {
@@ -72,7 +91,9 @@ LabelComponent.propTypes = {
 		PropTypes.number
 	]),
 	fontSize: PropTypes.number,
-	margin: PropTypes.string
+	margin: PropTypes.string,
+	bold: PropTypes.bool,
+	medium: PropTypes.bool
 };
 
 export default LabelComponent;

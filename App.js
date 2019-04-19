@@ -26,6 +26,7 @@ import constants from 'src/modules/constants';
 import styled from 'styled-components/native';
 
 const quicksandBold = require('./assets/fonts/Quicksand-Bold.ttf');
+const quicksandMedium = require('./assets/fonts/Quicksand-Medium.ttf');
 
 const Wrapper = styled.SafeAreaView`
 	flex: 1;
@@ -57,7 +58,8 @@ export default class App extends Component {
 		} = this.state;
 
 		await Font.loadAsync({
-			'quicksand-bold': quicksandBold
+			'quicksand-bold': quicksandBold,
+			'quicksand-medium': quicksandMedium
 		});
 
 		this.setState({
