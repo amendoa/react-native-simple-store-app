@@ -57,31 +57,31 @@ const result = [
 	{
 		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product1/image1.jpg',
 		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product1/image1.jpg',
-		price: '40,99$',
+		price: '$40.00',
 		key: '328298dd-e251-4e2e-9356-ed031ae5955f'
 	},
 	{
 		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product2/image1.jpg',
 		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product2/image1.jpg',
-		price: '50,99$',
+		price: '$50.00',
 		key: '25a77ec7-e070-4ec4-8ff6-6d2de63893ab'
 	},
 	{
 		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product3/image1.jpg',
 		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product3/image1.jpg',
-		price: '70,99$',
+		price: '$45.00',
 		key: 'e7d7022b-8948-4402-b2d9-5a0e5ca2b832'
 	},
 	{
 		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product4/image1.jpg',
 		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product4/image1.jpg',
-		price: '40,99$',
+		price: '$60.00',
 		key: '328298dd-e251-4e2e-9356-ed031ae5954f'
 	},
 	{
 		imageSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/images/product5/image1.jpg',
 		imageThumbnailSource: 'https://raw.githubusercontent.com/almeida-matheus/react-native-simple-store-app/develop/art/public/thumbs/product5/image1.jpg',
-		price: '50,99$',
+		price: '$70.00',
 		key: '25a77ec7-e070-4ec4-8ff6-6d2de53893ab'
 	}
 ];
@@ -114,7 +114,7 @@ const BagScene = props => (
 					fontSize={18}
 				/>
 				<Label
-					text="100,50$"
+					text="$100.50"
 					primary
 					fontSize={18}
 				/>

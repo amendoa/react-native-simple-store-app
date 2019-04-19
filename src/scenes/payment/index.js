@@ -220,7 +220,7 @@ class PaymentScene extends Component {
 							/>
 							<Label
 								gray
-								text="100,10$"
+								text="$100.10"
 								fontSize={16}
 							/>
 						</OrderInfoItem>
@@ -232,7 +232,7 @@ class PaymentScene extends Component {
 							/>
 							<Label
 								gray
-								text="10,00$"
+								text="$10.00"
 								fontSize={16}
 							/>
 						</OrderInfoItem>
@@ -244,14 +244,14 @@ class PaymentScene extends Component {
 							/>
 							<Label
 								gray
-								text="110,10$"
+								text="$110.10"
 								fontSize={16}
 							/>
 						</OrderInfoItem>
 					</OrderInfoContainer>
 					<Button
 						primary
-						text="pay 110,10$"
+						text="pay $110.10"
 						height="48"
 						onPress={() => {
 							this.setState({
